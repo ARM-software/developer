@@ -1,2 +1,2 @@
-# Build software to targe multiple-platforms
+# Build software to target multiple-platforms
 
