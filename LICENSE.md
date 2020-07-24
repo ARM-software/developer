@@ -6,4 +6,4 @@ Unless otherwise specified, everything in this repository is covered by the foll
 
 **Arm Software Developer** by the [Arm](https://www.arm.com/) is licensed under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/deed.ast).
 
-Based on a work at https://github.com/arm-software/armsoftwaredev
+Based on a work at https://github.com/arm-software/developer
