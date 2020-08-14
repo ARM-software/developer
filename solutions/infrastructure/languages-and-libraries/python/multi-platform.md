@@ -14,6 +14,10 @@ Installing [pandas](https://pandas.pydata.org/) on Aarch64 is as simple as `pip 
 
 If the library does not include any native code wheels are still helpful as they include package metadata. The library [requests](https://pypi.org/project/requests/) is an example where there is no native code. In this case the wheel is marked as 'any', and takes the same time to install on any platform. You can see an 'any' wheel here: [https://pypi.org/project/requests/#files](https://pypi.org/project/requests/#files)
 
+## Python libraries and Conda
+
+TBD
+
 ## Building wheels for AArch64 on AArch64
 
 ### Native compilation
