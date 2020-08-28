@@ -3,6 +3,8 @@
 ## Table of Contents
 
 - [Solutions](solutions/)
+   - [IoT](solutions/iot/)
+      - [AI](solutions/iot/ai/)
    - [Infrastructure](solutions/infrastructure/)
 	  - [CI/CD](solutions/infrastructure/ci-cd/)
 	  - [Workloads](solutions/infrastructure/workloads/)
