@@ -56,7 +56,7 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 4. Amazon Cloud Subscription
 5. AWS Rekognition Service
 
-## Docker on Raspberry Pi
+## Setting up Docker on Raspberry Pi
 
 ### 1. Preparing Your Raspberry Pi
 
@@ -72,7 +72,7 @@ In case you are in hurry, just run the below command and you should be good to g
 wget https://downloads.raspberrypi.org/raspios_full_armhf_latest
 ```
 
-### Using Raspberry Pi Imager
+### 2. Using Raspberry Pi Imager
 
 Next, we will be installing Raspberry Pi Imager. You can download via https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/
 
@@ -97,11 +97,13 @@ pi@raspberrypi:~ $ uname -arn
 Linux raspberrypi 4.19.118-v7+ #1311 SMP Mon Apr 27 14:21:24 BST 2020 armv7l GNU/Linuxpi@raspberrypi:~ $
 ```
 
-### Installing Docker 19.03 on each Pi nodes
+### 3. Installing Docker 19.03 on Raspberry Pi
 
 ```
 sudo curl -sSL https://get.docker.com/ | sh
 ```
+
+#### Verifying Docker Binaries
 
 ```
 pi@raspi2:~ $ docker version
@@ -131,21 +133,271 @@ pi@raspi2:~ $
 
 
 
-## Apache Kafka on AWS Cloud
+## Setting up Apache Kafka running inside Docker container on AWS Cloud EC2 Instance
 
-- [Setting up 2-Node Docker Swarm Cluster on AWS Cloud](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/setting-up-docker-swarm-on-aws.md)
-- [Building Apache Kafka on 2-Node Docker Swarm Cluster](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-kafka-on-swarm-cluster.md)
+### Pre-requisites:
 
+- Docker Desktop for Mac or Windows
+- AWS Account ( You will require t2.medium instances for this)
+- AWS CLI installed
+- Docker Machine installed
+
+### Adding Your Credentials:
+
+```
+[Captains-Bay]🚩 >  cat ~/.aws/credentials
+[default]
+aws_access_key_id = XXXA 
+aws_secret_access_key = XX
+```
+
+### Verifying AWS Version
+
+
+```
+[Captains-Bay]🚩 >  aws --version
+aws-cli/1.11.107 Python/2.7.10 Darwin/17.7.0 botocore/1.5.70
+Setting up Environmental Variable
+```
+
+```
+[Captains-Bay]🚩 >  export VPC=vpc-ae59f0d6
+[Captains-Bay]🚩 >  export REGION=us-west-2a
+[Captains-Bay]🚩 >  export SUBNET=subnet-827651c9
+[Captains-Bay]🚩 >  export ZONE=a
+[Captains-Bay]🚩 >  export REGION=us-west-2
+```
+
+### Building up First Node using Docker Machine
+
+```
+[Captains-Bay]🚩 >  docker-machine create  --driver amazonec2  --amazonec2-access-key=${ACCESS_KEY_ID}  --amazonec2-secret-key=${SECRET_ACCESS_KEY} --amazonec2-region=us-west-2 --amazonec2-vpc-id=vpc-ae59f0d6 --amazonec2-ami=ami-78a22900 --amazonec2-open-port 2377 --amazonec2-open-port 7946 --amazonec2-open-port 4789 --amazonec2-open-port 7946/udp --amazonec2-open-port 4789/udp --amazonec2-open-port 8080 --amazonec2-open-port 443 --amazonec2-open-port 80 --amazonec2-subnet-id=subnet-72dbdb1a --amazonec2-instance-type=t2.micro kafka-swarm-node1
+```
+
+### Listing out the Nodes
+
+```
+[Captains-Bay]🚩 >  docker-machine ls
+NAME                ACTIVE   DRIVER      STATE     URL                         SWARM   DOCKER     ERRORS
+kafka-swarm-node1   -        amazonec2   Running   tcp://35.161.106.158:2376           v18.09.6   
+kafka-swarm-node2   -        amazonec2   Running   tcp://54.201.99.75:2376             v18.09.6 
+```
+
+### Initialiating Docker Swarm Manager Node
+
+```
+ubuntu@kafka-swarm-node1:~$ sudo docker swarm init --advertise-addr 172.31.53.71 --listen-addr 172.31.53.71:2377
+Swarm initialized: current node (yui9wqfu7b12hwt4ig4ribpyq) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-xxxxxmr075to2v3k-decb975h5g5da7xxxx 172.31.53.71:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+```
+
+### Adding Worker Node
+
+
+```
+ubuntu@kafka-swarm-node2:~$ sudo docker swarm join --token SWMTKN-1-2xjkynhin0n2zl7xxxk-decb975h5g5daxxxxxxxxn 172.31.53.71:2377
+This node joined a swarm as a worker.
+```
+
+### Verifying 2-Node Docker Swarm Mode Cluster
+
+```
+ubuntu@kafka-swarm-node1:~$ sudo docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
+yui9wqfu7b12hwt4ig4ribpyq *   kafka-swarm-node1   Ready               Active              Leader              18.09.6
+vb235xtkejim1hjdnji5luuxh     kafka-swarm-node2   Ready               Active                                  18.09.6
+```
+
+### Installing Docker Compose
+
+```
+curl -L https://github.com/docker/compose/releases/download/1.25.0-rc1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   617    0   617    0     0   2212      0 --:--:-- --:--:-- --:--:--  2211
+100 15.5M  100 15.5M    0     0  8693k      0  0:00:01  0:00:01 --:--:-- 20.1M
+```
+
+```
+root@kafka-swarm-node1:/home/ubuntu/dockerlabs/solution/kafka-swarm# chmod +x /usr/local/bin/docker-compose
+```
+
+```
+ubuntu@kafka-swarm-node1:~/dockerlabs/solution/kafka-swarm$ sudo docker-compose version
+docker-compose version 1.25.0-rc1, build 8552e8e2
+docker-py version: 4.0.1
+CPython version: 3.7.3
+OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018
+```
+
+
+##  Building Apache Kafka on 2-Node Docker Swarm Cluster
+
+Apache Kafka is an open-source stream-processing software platform developed by LinkedIn and donated to the Apache Software Foundation. It is written in Scala and Java. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feeds.
+
+Apache Kafka is a distributed, partitioned, and replicated publish-subscribe messaging system that is used to send high volumes of data, in the form of messages, from one point to another. It replicates these messages across a cluster of servers in order to prevent data loss and allows both online and offline message consumption. This in turn shows the fault-tolerant behaviour of Kafka in the presence of machine failures that also supports low latency message delivery. In a broader sense, Kafka is considered as a unified platform which guarantees zero data loss and handles real-time data feeds.
+
+### Cloning the Repository
+
+```
+git clone https://github.com/ajeetraina/developer/solution/iot/ai/pico
+cd pico/kafka/
+```
+
+### Using `docker stack deploy` to setup 3 Node Kafka Cluster
+
+```
+docker stack deploy -c docker-compose.yml mykafka
+```
+
+By now, you should be able to access kafka manager at https://<IP>:9000
+    
+## Adding a cluster 
+
+- Cluster Name = pico (or whatever you want)
+- Cluster Zookeeper Hosts = zk-1:2181,zk-2:2181,zk-3:2181
+- Kafka Version = leave it at 0.9.01 even though we're running 1.0.0
+- Enable JMX Polling = enabled
+
+## Adding a Topic
+
+Click on Topic on the top center of the Kafka Manager to create a new topic with the below details -
+
+- Topic = testpico
+- Partitions = 6
+- Replication factor = 2
+
+which gives an even spread of the topic across the three kafka nodes.
+
+While saving the settings, it might ask to set minimal parameter required. Feel free to follow the instruction provided.
+    
 
 ## Setting up Pico 
 
-- [Running Consumer Scripts on AWS Cloud Instance](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-consumer-script.md)
-- [Running Producer Script on Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-producer-script-on-pi.md)
+### Running Consumer Scripts on AWS Cloud Instance
+
+
+Run the below Docker container for preparing environment for Consumer scripts
+
+```
+docker run -d -p 5000:5000 ajeetraina/opencv4-python3 bash
+```
+
+### Open up bash shell inside Docker Container
+
+```
+docker exec -it <container-id> bash
+```
+
+### Remove the existing Pico directory
+
+```
+rm -fr pico
+```
+
+### Cloning the fresh Repository
+
+```
+#git clone https://github.com/ajeetraina/developer/
+cd solutions/iot/ai/pico
+```
+
+### Locating the right consumer scripts
+
+You will need 2 scripts - Image Processor and Consumer
+
+```
+cd pico/deployment/objects/
+```
+
+## Execute Image processor Script 
+
+This script is placed under hhttps://github.com/ajeetraina/developer/edit/master/solutions/iot/ai/pico/blob/master/deployment/objects/image_processor.py location.
+Before you run this script, ensure that it has right AWS Access Key and Broker IP address
+
+```
+python3 image_processor.py
+```
+
+## Open up new bash again
+
+```
+docker exec -it <container-id> bash
+```
+
+## Exexute Consumer Script
+
+This script is placed under https://github.com/ajeetraina/developer/edit/master/solutions/iot/ai/pico/blob/master/deployment/objects/ directory.
+Before you run this script, ensure that it has right Broker IP address
+
+```
+python3 consumer.py
+```
+
+- Running Producer Script on Raspberry Pi
+
+## Clone the Repository
+
+```
+git clone https://github.com/ajeetraina/developer
+cd developer/solutions/iot/ai/pico
+```
+
+## Locating Producer Script
+
+```
+cd pico/deployment/objects/
+```
+
+## Edit producer_camera.py script and add the proper IP address for the kafka broker:
+
+```
+brokers = ["35.221.213.182:9092"]
+```
+
+## Installing Dependencies
+
+```
+apt install -y python-pip libatlas-base-dev libjasper-dev libqtgui4 python3-pyqt5 python3-pyqt5 libqt4-test
+pip3 install kafka-python opencv-python pytz
+pip install virtualenv virtualenvwrapper numpy
+```
+
+## Execute the script
+
+```
+python3 producer_camera.py
+```
+
+Please Note: This script should be run post the consumer scripts (Image_Processor & Consumer.py) is executed
+
 
 ## Testing Object Detection
 
-- [Performing Text Analytics](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/performing-object-detection.md)rn-your-raspberrypi-into-camera.md)
-- [Performing Object Detection](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/performing-object-detection.md)rn-your-raspberrypi-into-camera.md))
+### Performing Object Detection
+
+## Sequence of Scripts Execution
+
+### Pre-requisite:
+
+- Ensure that you have followed all the above steps. 
+- Ensure that Docker Swarm is up and running on AWS Cloud
+
+### Sequence:
+
+- First run the Image_Processor Script on AWS Instance
+- Then run the Consumer.py Script on AWS Instance
+- Finally, run the Producer_camera.py script on Pi
+
+Place an object in front of camera module and watch out for both text as well as object detection under http://broker-ip:5000
+
+
+
 
 
 
