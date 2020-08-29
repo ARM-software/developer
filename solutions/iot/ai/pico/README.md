@@ -417,6 +417,8 @@ Please Note: This script should be run post the consumer scripts (Image_Processo
 Place an object in front of camera module and watch out for both text as well as object detection under http://broker-ip:5000
 
 
+![My Image](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/workshop/images/pico123.png)
+
 
 
 
