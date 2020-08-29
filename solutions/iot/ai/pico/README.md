@@ -361,28 +361,28 @@ Before you run this script, ensure that it has right Broker IP address
 python3 consumer.py
 ```
 
-- Running Producer Script on Raspberry Pi
+## Running Producer Script on Raspberry Pi
 
-## Clone the Repository
+### Clone the Repository
 
 ```
 git clone https://github.com/ajeetraina/developer
 cd developer/solutions/iot/ai/pico
 ```
 
-## Locating Producer Script
+### Locating Producer Script
 
 ```
 cd pico/deployment/objects/
 ```
 
-## Edit producer_camera.py script and add the proper IP address for the kafka broker:
+### Edit producer_camera.py script and add the proper IP address for the kafka broker:
 
 ```
 brokers = ["35.221.213.182:9092"]
 ```
 
-## Installing Dependencies
+### Installing Dependencies
 
 ```
 apt install -y python-pip libatlas-base-dev libjasper-dev libqtgui4 python3-pyqt5 python3-pyqt5 libqt4-test
@@ -390,7 +390,7 @@ pip3 install kafka-python opencv-python pytz
 pip install virtualenv virtualenvwrapper numpy
 ```
 
-## Execute the script
+### Execute the script
 
 ```
 python3 producer_camera.py
@@ -399,18 +399,16 @@ python3 producer_camera.py
 Please Note: This script should be run post the consumer scripts (Image_Processor & Consumer.py) is executed
 
 
-## Testing Object Detection
-
-### Performing Object Detection
+### Testing Object Detection
 
 ## Sequence of Scripts Execution
 
-### Pre-requisite:
+#### Pre-requisite:
 
 - Ensure that you have followed all the above steps. 
 - Ensure that Docker Swarm is up and running on AWS Cloud
 
-### Sequence:
+#### Sequence:
 
 - First run the Image_Processor Script on AWS Instance
 - Then run the Consumer.py Script on AWS Instance
