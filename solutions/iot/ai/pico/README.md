@@ -1,6 +1,6 @@
 # The Pico Project
 
-Object Detection & Text Analytics Made Simple using Docker, Apache Kafka, IoT & Amazon Rekognition System
+Object Detection & Text Analytics using Deep Learning Made Simple using Docker, Apache Kafka, IoT & Amazon Rekognition System
 
 ![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/thepicoproject1.png "My Image")
 
