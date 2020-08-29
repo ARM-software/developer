@@ -9,7 +9,7 @@ Object Detection & Text Analytics using Deep Learning Made Simple using Docker, 
 1. [Intent](#Intent)
 2. [Hardware](#hardware)
 3. [Software](#Software)
-4. [Activating Raspberry Pi Camera](#Activating-Raspberry-Pi-Camera)
+4. [Activating Raspberry Pi Camera](#activating-raspberry-pi-camera-module)
 5. [Setting up Docker on Raspberry Pi](#Setting-up-Docker-on-Raspberry-Pi)
    - [Preparing Your Raspberry Pi](#Preparing-Your-Raspberry-Pi)
    - [Using Raspberry Pi Imager](#Using-Raspberry-Pi-Imager)
