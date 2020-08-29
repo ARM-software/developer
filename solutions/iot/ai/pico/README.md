@@ -9,14 +9,17 @@ Object Detection & Text Analytics using Deep Learning Made Simple using Docker, 
 1. [Intent](#Intent)
 2. [Hardware](#hardware)
 3. [Software](#Software)
-4. 
-5. [#Activating Raspiberry Pi Camera](#Activating Raspiberry Pi Camera)
-6. [How to run the program](#How-to-run-the-program)
-7. [About](#About)
-8. [License](#License)
-9. [Contribute](#Contribute)
-10. [Credits](#Credits)
-11. [More](#More)
+4. [Activating Raspberry Pi Camera](#Activating-Raspberry-Pi-Camera)
+5. [Setting up Docker on Raspberry Pi](#Setting-up-Docker-on-Raspberry-Pi)
+   - [Preparing Your Raspberry Pi](#Preparing-Your-Raspberry-Pi)
+   - [Using Raspberry Pi Imager](#Using-Raspberry-Pi-Imager)
+   - [Installing Docker 19.03 on Raspberry Pi](#Installing-Docker-19.03-on-Raspberry-Pi)
+6. [Setting up Apache Kafka running inside Docker container on AWS Cloud EC2 Instance](#Setting-up-Apache-Kafka-running-inside-Docker-container-on-AWS-Cloud-EC2-Instance)
+   - [Building up First Node using Docker Machine](#Building-up-First-Node-using-Docker-Machine)
+   - [Building Apache Kafka on 2-Node Docker Swarm Cluster](#Building-Apache-Kafka-on-2-Node-Docker-Swarm-Cluster)
+7. [Setting up Pico](#Setting-up-Pico)
+   - [Running Consumer Scripts on AWS Cloud Instance](#Running-Consumer-Scripts-on-AWS-Cloud-Instance)
+   - [Running Producer Script on Raspberry Pi](#Running-Producer-Script-on-Raspberry-Pi)
 
 ## Intent:
 
