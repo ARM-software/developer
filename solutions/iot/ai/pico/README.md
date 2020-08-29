@@ -62,14 +62,15 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 
 Raspberry Pi OS (previously called Raspbian) is an official operating system for all models of the Raspberry Pi. We will be using Raspberry Pi Imager for an easy way to install Raspberry Pi OS on top of Raspberry Pi:
 
-Visit https://www.raspberrypi.org/downloads/raspberry-pi-os/ and download Raspberry Pi OS by running the below CLI:
+Visit [this link](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and download Raspberry Pi OS by running the below CLI:
 
 ![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install1.png "My Image")
 
 In case you are in hurry, just run the below command and you should be good to go:
 
+```
 wget https://downloads.raspberrypi.org/raspios_full_armhf_latest
-
+```
 
 ### Using Raspberry Pi Imager
 
@@ -91,7 +92,7 @@ Once the write is successful, you can remove the SD card from card reader and th
 ![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install6.png "My Image")
 
 ```
-$ssh pi@192.168.1.7$ssh pi @192.168.1.4
+$ssh pi @192.168.1.4
 pi@raspberrypi:~ $ uname -arn
 Linux raspberrypi 4.19.118-v7+ #1311 SMP Mon Apr 27 14:21:24 BST 2020 armv7l GNU/Linuxpi@raspberrypi:~ $
 ```
