@@ -11,13 +11,12 @@ Object Detection & Text Analytics Made Simple using Docker, Apache Kafka, IoT & 
 3. [Software](#Software)
 4. [Installation](#Installation)
 5. [Setup](#Setup)
-6. [QR code generator](#QR-code-generator)
-7. [How to run the program](#How-to-run-the-program)
-8. [About](#About)
-9. [License](#License)
-10. [Contribute](#Contribute)
-11. [Credits](#Credits)
-12. [More](#More)
+6. [How to run the program](#How-to-run-the-program)
+7. [About](#About)
+8. [License](#License)
+9. [Contribute](#Contribute)
+10. [Credits](#Credits)
+11. [More](#More)
 
 ## Intent:
 
@@ -51,73 +50,38 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 
 # Software
 
-1. Raspbian (OS)
+1. Raspberry Pi OS
 2. Docker 19.03.x
 3. Python 
-4. AWS Rekognition Service
-5. AWS EC2 Instance
+4. Amazon Cloud Subscription
+5. AWS Rekognition Service
 
-# Getting Started 
+## Docker on Raspberry Pi
 
-# Running Producer inside Docker Container
-
-```
-sudo docker run -it --privileged --device /dev/video0:/dev/video0 ajeetraina/pico-producer-rpi python3 producer_camera.py
-```
-
-# Verify that it is running fine
-
-```
-CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS               NAMES
-81891d992daf        ajeetraina/pico-producer-rpi   "/usr/bin/entry.sh p…"   9 minutes ago       Up 9 minutes                            jolly_dewdney
-
-```
-
-# Setting up Kafka Cluster on Cloud Platform
-
-## Running Kafka on Swarm Cluster on AWS
-
-In order to run Kafka on AWS, you need t2.medium instances which doesn't fall under Free Tier. You will need to use your FREE credits or pay for its usage. Alternatively, for development purpose if you are not concerned about performance, you can use GCP instances.
-
-I assume that you have Docker and Docker Compose installed on multiple Swarm Mode Cluster
-
-### Cloning the Repository
-
-```
-git clone https://github.com/collabnix/pico
-cd pico/kafka
-```
-
-```
-docker stack deploy -c docker-compose.yml mykafka
-```
-
-That's it. Your AWS KAfka cluster is up and running on Docker Swarm Nodes. 
-
-# Running the Consumer Script
-
-To run the consumer script, we need to focus on two files: 
-- consumer.py and 
-- image_processor.py
-
-Under the image_processor.py you need to add ACCESS KEY details of your AWS account and under consumer.py you need to add your correct kafka cluster IP.
+- [Preparing Your Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/preparing-raspberrypi.md)
+- [Installing Docker on Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/installing-docker.md)
+- [Turn Your Raspberry Pi into CCTV Camera using Docker container](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/turn-your-raspberrypi-into-camera.md)
 
 
-Here you go..
+## Apache Kafka on AWS Cloud
 
-Just place any object in front of camera module and it shall detect the object automatically with tagging about the object type.
+- [Setting up 2-Node Docker Swarm Cluster on AWS Cloud](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/setting-up-docker-swarm-on-aws.md)
+- [Building Apache Kafka on 2-Node Docker Swarm Cluster](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-kafka-on-swarm-cluster.md)
 
-## Governance
 
-This project was incubated by Ajeet Singh Raina [Docker Captain & Docker Community Leader](https://www.docker.com/captains/ajeet-singh-raina) & Avinash Bendigeri(Data Science Engineer)
+## Setting up Pico 
 
-## Getting Started - The Hard Way
+- [Running Consumer Scripts on AWS Cloud Instance](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-consumer-script.md)
+- [Running Producer Script on Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/running-producer-script-on-pi.md)
 
-Stage I - [Installing Docker on Raspberry Pi](https://github.com/collabnix/pico/tree/master/getting-started)<br>
-Stage II - [Turn Your Raspberry Pi into Night survillience Camera using Docker](http://collabnix.com/turn-your-raspberry-pi-into-low-cost-cctv-surveillance-camerawith-night-vision-in-5-minutes-using-docker/)<br>
-Stage III -  [Deploy Apache Kafka on AWS Platform using Docker Swarm](https://github.com/collabnix/pico/blob/master/kafka/README.md)<br>
-Stage IV - [Pushing the video frame from Raspberry Pi to Apache Kafka](https://github.com/collabnix/pico/blob/master/kafka/producer-consumer.md) <br>
-Stage IV - []() - [Preparing AWS Lambda Deployment Package in Python & Testing Kafka Connect AWS Lambda Connector](https://github.com/collabnix/pico/blob/master/lambda/README.md)<br>
+## Testing Object Detection
+
+- [Performing Text Analytics](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/performing-object-detection.md)rn-your-raspberrypi-into-camera.md)
+- [Performing Object Detection](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/performing-object-detection.md)rn-your-raspberrypi-into-camera.md))
+
+
+
+
 
 
 
