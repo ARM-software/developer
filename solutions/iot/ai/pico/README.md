@@ -58,6 +58,20 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 
 ## Setting up Raspberry Pi with Camera Module
 
+To configure the camera Interface, run the below command as sudo or root user:
+
+```
+$ sudo raspi-config
+```
+
+It will open up command-line UI window, choose Interfacing , select Camera and enable it. Save and exit the CLI window.
+
+You will also need to load the required driver “bcm2835-v412” to make your camera module work. If you miss this step, you will end up seeing a blank screen even though the application comes up without any issue.
+
+```
+# sudo modprobe bcm2835-v4l2
+```
+
 ![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install8.png)
 
 
