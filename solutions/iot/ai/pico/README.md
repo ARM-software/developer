@@ -20,6 +20,9 @@ Object Detection & Text Analytics using Deep Learning Made Simple using Docker, 
 7. [Setting up Pico](#setting-up-pico)
    - [Running Consumer Scripts on AWS Cloud Instance](#running-consumer-scripts-on-aws-cloud-instance)
    - [Running Producer Script on Raspberry Pi](#running-Producer-Script-on-Raspberry-Pi)
+8. [References & Resources](#referneces-&-resources)
+
+
 
 ## Intent:
 
@@ -420,7 +423,10 @@ Place an object in front of camera module and watch out for both text as well as
 ![My Image](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/workshop/images/pico123.png)
 
 
+# References & Resources
 
+- [The Rise of Pico: At the Grace Hopper Celebration India](https://collabnix.com/the-rise-of-pico-at-the-grace-hopper-celebration-india/
+- [Introducing Pico - Object Detection & Analytics using Docker, IoT & Amazon Rekognition System](https://www.slideshare.net/ajeetraina/introducing-pico-object-detection-analytics-using-docker-iot-amazon-rekognition-system)
 
 
 
