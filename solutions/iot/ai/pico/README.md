@@ -9,7 +9,7 @@ Object Detection & Text Analytics using Deep Learning Made Simple using Docker, 
 1. [Intent](#Intent)
 2. [Hardware](#hardware)
 3. [Software](#Software)
-4. [Installation](#Installation)
+4. [Activating Raspberry Pi Camera Module](#Activating Raspberry Pi Camera Module)
 5. [Setup](#Setup)
 6. [How to run the program](#How-to-run-the-program)
 7. [About](#About)
@@ -56,7 +56,7 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 4. Amazon Cloud Subscription
 5. AWS Rekognition Service
 
-## Setting up Raspberry Pi with Camera Module
+# Activating Raspberry Pi Camera Module
 
 To configure the camera Interface, run the below command as sudo or root user:
 
