@@ -21,7 +21,7 @@ Object Detection & Text Analytics using Deep Learning Made Simple using Docker, 
    - [Running Consumer Scripts on AWS Cloud Instance](#running-consumer-scripts-on-aws-cloud-instance)
    - [Running Producer Script on Raspberry Pi](#running-Producer-Script-on-Raspberry-Pi)
 8. [References & Resources](#references--resources)
-9. [License](#license)
+
 
 
 
