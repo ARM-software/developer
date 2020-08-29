@@ -48,6 +48,15 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 
 ![alt text](https://github.com/collabnix/pico/blob/master/images/pico2.png)
 
+
+# Software
+
+1. Raspbian (OS)
+2. Docker 19.03.x
+3. Python 
+4. AWS Rekognition Service
+5. AWS EC2 Instance
+
 # Getting Started 
 
 # Running Producer inside Docker Container
