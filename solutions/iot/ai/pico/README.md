@@ -58,9 +58,76 @@ The Pico framework uses Kafka cluster to acquire data in real-time. Kafka is a m
 
 ## Docker on Raspberry Pi
 
-- [Preparing Your Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/preparing-raspberrypi.md)
-- [Installing Docker on Raspberry Pi](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/installing-docker.md)
-- [Turn Your Raspberry Pi into CCTV Camera using Docker container](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/blob/master/workshop/turn-your-raspberrypi-into-camera.md)
+### 1. Preparing Your Raspberry Pi
+
+Raspberry Pi OS (previously called Raspbian) is an official operating system for all models of the Raspberry Pi. We will be using Raspberry Pi Imager for an easy way to install Raspberry Pi OS on top of Raspberry Pi:
+
+Visit https://www.raspberrypi.org/downloads/raspberry-pi-os/ and download Raspberry Pi OS by running the below CLI:
+
+![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install1.png "My Image")
+
+In case you are in hurry, just run the below command and you should be good to go:
+
+wget https://downloads.raspberrypi.org/raspios_full_armhf_latest
+
+
+### Using Raspberry Pi Imager
+
+Next, we will be installing Raspberry Pi Imager. You can download via https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/
+
+![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install2.png "My Image")
+
+All you need to do is choose the right operating system and SD card, and it should be able to flash OS on your SD card.
+
+![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install3.png "My Image")
+
+
+Click “Write” and it’s time to grab a coffee.
+
+![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install4.png "My Image")
+
+Once the write is successful, you can remove the SD card from card reader and then insert it into Raspberry Pi SD card slot.
+
+![alt text](https://github.com/ajeetraina/developer/blob/master/solutions/iot/ai/pico/images/install6.png "My Image")
+
+```
+$ssh pi@192.168.1.7$ssh pi @192.168.1.4
+pi@raspberrypi:~ $ uname -arn
+Linux raspberrypi 4.19.118-v7+ #1311 SMP Mon Apr 27 14:21:24 BST 2020 armv7l GNU/Linuxpi@raspberrypi:~ $
+```
+
+### Installing Docker 19.03 on each Pi nodes
+
+```
+sudo curl -sSL https://get.docker.com/ | sh
+```
+
+```
+pi@raspi2:~ $ docker version
+Client: Docker Engine - Community 
+Version:           19.03.4 
+API version:       1.40 
+Go version:        go1.12.10 
+Git commit:        9013bf5 
+Built:             Fri Oct 18 16:03:00 2019 
+OS/Arch:           linux/arm 
+Experimental:      false
+
+Server: Docker Engine - Community Engine:  
+Version:          19.03.8  
+API version:      1.40 (minimum version 1.12)  
+Go version:       go1.12.17  
+Git commit:       afacb8b  
+Built:            Wed Mar 11 01:29:22 2020  OS/Arch:          linux/arm  Experimental:     false 
+containerd:  Version:          1.2.10  
+GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339 
+runc:  Version:          1.0.0-rc8+dev  
+GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657 docker-init:  
+Version:          0.18.0  
+GitCommit:        fec368
+pi@raspi2:~ $
+```
+
 
 
 ## Apache Kafka on AWS Cloud
