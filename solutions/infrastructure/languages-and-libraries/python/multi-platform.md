@@ -35,6 +35,8 @@ Travis-CI includes support for AArch64 builders. You can generate a wheel during
 
 [https://github.com/mpmkp2020/numpy_demo/blob/master/.travis.yml](https://github.com/mpmkp2020/numpy_demo/blob/master/.travis.yml)
 
+You can use multibuild to build linux wheel on AArch64 architecture same as on x86 machine. A complete example for using multibuild is here:
+[https://github.com/python-cffi/cffi-travis-wheel](https://github.com/python-cffi/cffi-travis-wheel). It's [README](https://github.com/python-cffi/cffi-travis-wheel/blob/master/README.md) explains using travis-ci to upload wheel on pypi as well.
 
 ## Building AArch64 wheels on x86
 
