@@ -4,7 +4,7 @@
 
 ***
 
-# <Insert Project or PoC name here>
+# Insert Project or PoC name here
 
 <insert brief description>
 
