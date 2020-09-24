@@ -1,10 +1,10 @@
 # TEMPLATE
 
-Instructions on how to use this template...
+<Remove this text before submitting pull request, these are instructions for how to use the template. Coming soon...>
 
 ***
 
-# Photobooth
+# Insert Project or PoC name here
 
 <insert brief description>
 
