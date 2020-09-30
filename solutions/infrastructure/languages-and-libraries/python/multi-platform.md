@@ -55,3 +55,34 @@ To follow.
 
 * fix-up the linux-arm64 base image with the library version necessary for PEP-0599.
 * inherit linux-arm64 into the manylinux2014-aarch64 image.
+
+It is possible to use the existing dockcross/manylinux2014-aarch64 image. First, prepare the dockcross cross compiler image so the it can be convieniently used locally:
+```
+docker run --rm dockcross/manylinux2014-aarch64 > ./buildaarch64wheel 
+chmod u+x ./buildaarch64wheel 
+```
+Now we clone the project we care about. In this case, I’m using the popular Kiwi implementation of the Cassowary constraint solving algorithm: kiwisolver. 
+```
+git clone https://github.com/nucleic/kiwi 
+cd kiwi 
+```
+Finally, we can use the dockcross cross compiler to build the wheel:
+```
+$ ../buildaarch64wheel bash -c '/opt/_internal/cpython-3.8.4/bin/python ./setup.py bdist_wheel --plat-name linux_aarch64' 
+running bdist_wheel 
+running build 
+running build_ext 
+building 'kiwisolver' extension 
+... 
+creating 'dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it 
+adding 'kiwisolver.cpython-38-x86_64-linux-gnu.so' 
+adding 'kiwisolver-1.2.0.dist-info/LICENSE' 
+adding 'kiwisolver-1.2.0.dist-info/METADATA' 
+adding 'kiwisolver-1.2.0.dist-info/WHEEL' 
+adding 'kiwisolver-1.2.0.dist-info/top_level.txt' 
+adding 'kiwisolver-1.2.0.dist-info/RECORD' 
+removing build/bdist.linux-x86_64/wheel 
+```
+
+The wheel will be present here ```./dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl ```
+
