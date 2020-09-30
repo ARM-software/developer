@@ -66,9 +66,9 @@ Now we clone the project we care about. In this case, I’m using the popular Ki
 git clone https://github.com/nucleic/kiwi 
 cd kiwi 
 ```
-Finally, we can use the dockcross cross compiler to build the wheel:
+Finally, we can use the dockcross cross compiler to build the wheel with Python 3.8.5 as of time of writing:
 ```
-$ ../buildaarch64wheel bash -c '/opt/_internal/cpython-3.8.4/bin/python ./setup.py bdist_wheel --plat-name linux_aarch64' 
+$ ../buildaarch64wheel bash -c '/opt/_internal/cpython-3.8.5/bin/python ./setup.py bdist_wheel --plat-name linux_aarch64' 
 running bdist_wheel 
 running build 
 running build_ext 
