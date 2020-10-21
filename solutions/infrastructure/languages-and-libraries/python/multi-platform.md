@@ -40,9 +40,44 @@ You can use multibuild to build linux wheel on AArch64 architecture same as on x
 
 ## Building AArch64 wheels on x86
 
-### Run a AArch64 native container on x86
+### Run a AArch64 native container on x86 with emulation
 
-There is a containerized environment available to run on AArch64 to build wheels to the current specification. The container is available here: [https://quay.io/repository/pypa/manylinux2014_aarch64](https://quay.io/repository/pypa/manylinux2014_aarch64). To run an AArch64 container on x86 requires an emulator. Instructions for using the QEMU emulator to run a container are here: [https://blog.hypriot.com/post/docker-intel-runs-arm-containers/](https://blog.hypriot.com/post/docker-intel-runs-arm-containers/).
+There is a containerized environment available to run on AArch64 to build wheels to the current specification. The container is available here: [https://quay.io/repository/pypa/manylinux2014_aarch64](https://quay.io/repository/pypa/manylinux2014_aarch64). To run an AArch64 container on x86 requires an emulator. Instructions for using the QEMU emulator to run a container are here: [https://github.com/multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static).
+
+```
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+Now we clone the project we care about. In this case, I’m using the popular Kiwi implementation of the Cassowary constraint solving algorithm: kiwisolver. 
+```
+git clone https://github.com/nucleic/kiwi 
+cd kiwi 
+```
+Now we can call the AArch64 manylinux2014 environment:
+```
+$ docker run --rm -v `pwd`:/io quay.io/pypa/manylinux2014_aarch64 bash -c '/opt/python/cp38-cp38/bin/python ./setup.py bdist_wheel'
+running bdist_wheel
+running build
+running build_ext
+building 'kiwisolver' extension
+creating build
+creating build/temp.linux-aarch64-3.8
+creating build/temp.linux-aarch64-3.8/py
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/io/.eggs/cppy-1.1.0-py3.8.egg/cppy/include -I. -I/opt/python/cp38-cp38/include/python3.8 -c py/kiwisolver.cpp -o build/temp.linux-aarch64-3.8/py/kiwisolver.o -std=c++11
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/io/.eggs/cppy-1.1.0-py3.8.egg/cppy/include -I. -I/opt/python/cp38-cp38/include/python3.8 -c py/constraint.cpp -o build/temp.linux-aarch64-3.8/py/constraint.o -std=c++11
+...
+creating build/bdist.linux-aarch64/wheel/kiwisolver-1.2.0.dist-info/WHEEL
+creating 'dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl' and adding 'build/bdist.linux-aarch64/wheel' to it
+adding 'kiwisolver.cpython-38-aarch64-linux-gnu.so'
+adding 'kiwisolver-1.2.0.dist-info/LICENSE'
+adding 'kiwisolver-1.2.0.dist-info/METADATA'
+adding 'kiwisolver-1.2.0.dist-info/WHEEL'
+adding 'kiwisolver-1.2.0.dist-info/top_level.txt'
+adding 'kiwisolver-1.2.0.dist-info/RECORD'
+removing build/bdist.linux-aarch64/wheel
+```
+
+The wheel is present here: ```./dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl ```
+
 
 ### Modify the x86 wheel building environment to include a cross-compiler
 
@@ -84,5 +119,5 @@ adding 'kiwisolver-1.2.0.dist-info/RECORD'
 removing build/bdist.linux-x86_64/wheel 
 ```
 
-The wheel will be present here ```./dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl ```
+The wheel is present here ```./dist/kiwisolver-1.2.0-cp38-cp38-linux_aarch64.whl ```
 
