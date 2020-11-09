@@ -1,9 +1,9 @@
 # How to Participate  
 
-- “Follow” @ArmSoftwareDev on Twitter (must be able to Direct Message winner) 
+- “Follow” [@ArmSoftwareDev](https://twitter.com/ArmSoftwareDev) on Twitter (must be able to Direct Message winner) 
 - “Like” the entry Tweet 
 - “Comment” and “Tag” someone on the entry Tweet
-- (Optional) In your "Comment", tell @ArmSoftwareDev something you enjoyed about @Hackaday Remoticon 2020 virtual event. 
+- (Optional) In your "Comment", tell [@ArmSoftwareDev](https://twitter.com/ArmSoftwareDev) something you enjoyed about @Hackaday Remoticon 2020 virtual event. 
 - “Retweet” the entry Tweet
 
 ## Useful resources: 
