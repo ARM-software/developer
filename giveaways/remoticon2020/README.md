@@ -1,3 +1,5 @@
+[VIEW PDF](https://github.com/ARM-software/developer/blob/master/giveaways/remoticon2020/Giveaway%20Terms%20and%20Conditions%20-%20Twitter%20Roboticon.pdf)
+
 # How to Participate  
 
 - “Follow” [@ArmSoftwareDev](https://twitter.com/ArmSoftwareDev) on Twitter (must be able to Direct Message winner) 
