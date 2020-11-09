@@ -33,10 +33,10 @@ The winner(s) of the competition will be selected at random and announced by the
 The name of the winner(s) will be randomly selected and posted on https://twitter.com/ArmSoftwareDev by December 11 2020 and/or will be contacted directly. All prizes are based on availability. Winners will receive one of the following prize(s). The prizes will be picked at random: 
 
 - 1 x PineBook Pro laptops 
-- 2 x NVIDIA Jetson Nano 
+- 2 x NVIDIA Jetson Nano (with power supply)
 - 1 x NVIDIA Xavier 
 - 5 x $100 AWS vouchers 
-- 2 x RPi 4 Model B - 4GB 
+- 2 x RPi 4 Model B - 4GB (with power supply)
 
 The Prize is non-refundable, and no cash alternative is available. Arm reserves the right, in its sole discretion, to substitute the prize at any time if the prize advertised is unavailable.  
 
