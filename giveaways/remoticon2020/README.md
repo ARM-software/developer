@@ -2,8 +2,9 @@
 
 - “Follow” @ArmSoftwareDev on Twitter (must be able to Direct Message winner) 
 - “Like” the entry Tweet 
-- “Comment” and “Tag” someone on the entry Tweet and tell @ArmSoftwareDev something you are excited about/to see at the @Hackaday Remoticon 2020 virtual event. 
-- “Retweet” the entry Tweet 
+- “Comment” and “Tag” someone on the entry Tweet
+- (Optional) In your "Comment", tell @ArmSoftwareDev something you enjoyed about @Hackaday Remoticon 2020 virtual event. 
+- “Retweet” the entry Tweet
 
 ## Useful resources: 
 
@@ -23,20 +24,19 @@ The competition is only open to participants 18 years or older, who are resident
 
 ### Entry period and criteria  
 
-Entries may be submitted at https://twitter.com/ArmSoftwareDev (via interaction with entry Tweet) from November 4, 2020 at 8:00a PT (3:00pm UTC) and you must submit your entry by 8:00am PT (3:00pm UTC) by November 9, 2020. All entries (Comments and Retweet with quote to entry Tweet) must be written in English.  
+Entries may be submitted at https://twitter.com/ArmSoftwareDev (via interaction with entry Tweet) from November 9, 2020 at 4:40PM PT and you must submit your entry by 8:00am PT November 20, 2020. All entries (Like, Follow, Comments, and Retweet with quote to entry Tweet) must be written in English.  
 
 ### How we select the winners  
 
 The winner(s) of the competition will be selected at random and announced by the following process:  
 
-The name of the winner(s) will be randomly selected and posted on https://twitter.com/ArmSoftwareDev by October, 23 2020 and/or will be contacted directly. All prizes are based on availability. Winners will receive one of the following prize(s). The prizes will be picked at random: 
+The name of the winner(s) will be randomly selected and posted on https://twitter.com/ArmSoftwareDev by December 11 2020 and/or will be contacted directly. All prizes are based on availability. Winners will receive one of the following prize(s). The prizes will be picked at random: 
 
 - 1 x PineBook Pro laptops 
 - 2 x NVIDIA Jetson Nano 
 - 1 x NVIDIA Xavier 
-- 5x $100 AWS vouchers 
-- 1 x SolidRun HoneyComb 
-- 3 x RPi Model B - 4GB 
+- 5 x $100 AWS vouchers 
+- 2 x RPi 4 Model B - 4GB 
 
 The Prize is non-refundable, and no cash alternative is available. Arm reserves the right, in its sole discretion, to substitute the prize at any time if the prize advertised is unavailable.  
 
