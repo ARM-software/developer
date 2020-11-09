@@ -9,8 +9,8 @@
 ## Useful resources: 
 
 - Link to @ArmSoftwareDev Twitter channel: https://twitter.com/ArmSoftwareDev 
-- Link to Arm Software Developers YouTube channel:  
-- Link to Arm Software Developer GitHub:  
+- Link to Arm Software Developers YouTube channel: https://www.youtube.com/c/ArmSoftwareDevelopers
+- Link to Arm Software Developer GitHub: https://github.com/ARM-software/developer
 
 ## Official Contest Terms & Conditions:  
 
