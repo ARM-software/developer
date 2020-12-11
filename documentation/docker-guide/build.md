@@ -1,11 +1,11 @@
 ## Table of Contents
-- Windows 10 on Arm laptop OR Arm Linux laptop OR Arm Chromebook with Linux
-- Windows 10/Linux on x86_64 laptop
-   - Build and run local
-   - Build on Remote machine and Run local
-- Use GitHub actions to build and push Arm-based docker images
-   - Use buildx to build multi-architecture Arm images
-   - Use build with Arm self-hosted runner
+- [Windows 10 on Arm laptop OR Arm Linux laptop OR Arm Chromebook with Linux](#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)
+- [Windows 10/Linux on x86_64 laptop]()
+   - [Build and run local]()
+   - [Build on Remote machine and Run local]()
+- [Use GitHub actions to build and push Arm-based docker images]()
+   - [Use buildx to build multi-architecture Arm images]()
+   - [Use build with Arm self-hosted runner]()
 
 ***
 
@@ -37,7 +37,8 @@ $ ./run.sh
 ***How it works***
 
 This is a local docker image build and run on a Windows 10 on Arm laptop using WSL. It looks just like Linux and will create an Arm image and run a container to print the architecture of the machine from the uname command. 
-Windows 10/Linux on x86_64 laptop
+
+### Windows 10/Linux on x86_64 laptop
 
 ***
 
@@ -126,6 +127,8 @@ $./local-run.sh
 ***How it works***
 
 The first step in the workflow is to check out the code from the repo, this will bring our codebase into our build environment for GitHub Actions. Then we pull in an Action which gives us the ability to run docker buildx. We then set some environment variables that are used by the docker commands. The next Action is to login into DockerHub with your encrypted secrets. Final step is running docker buildx to build/push our c-hello-world-github image into the DockerHub registry.
+
+***
 
 #### Use build with Arm self-hosted runner
 
