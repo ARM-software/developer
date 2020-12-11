@@ -77,7 +77,7 @@ $ uname -m
 
 ***Do it***
 
-Use the general Linux install procedure
+Use the general [Linux install procedure](#docker-for-linux-install-procedure)
 
 ```shell
 $ sudo apt update 
@@ -115,7 +115,7 @@ The almost universal Linux install doesn’t recognize Manjaro on Arm, but pacma
 
 ***Do it***
 
-Use the general Linux install procedure
+Use the general [Linux install procedure](#docker-for-linux-install-procedure)
 
 ```shell
 $ sudo pacman -Syu 
@@ -151,7 +151,7 @@ Nothing right now.
 
 ***Do it***
 
-Use the general Linux install procedure
+Use the general [Linux install procedure](#docker-for-linux-install-procedure)
 
 ```shell
 $ sudo apt update 
@@ -192,7 +192,7 @@ More information on the Docker Desktop on Windows [User Manual](https://docs.doc
 
 ***Do it***
 
-- Use the general Linux install procedure to install the latest verion 
+- Use the general [Linux install procedure](#docker-for-linux-install-procedure) to install the latest verion 
 - Enable the ‘Experimental features’ to use docker buildx
 - Install the instruction emulation to register Arm executables to run on the x86 machine 
 
@@ -213,9 +213,13 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 ## Target: In the cloud
 
 ### AWS Graviton
-Use the Linux install procedure
-Getting started guide in GitHub https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md 
-2) Setup Graviton as remote builder
+
+***Use the Linux install procedure***
+
+[Getting started guide in GitHub](https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md )
+
+***Setup Graviton as remote builder***
+
 Differences between Graviton 1 and Graviton 2
 
 ***
@@ -224,10 +228,10 @@ Differences between Graviton 1 and Graviton 2
 
 ### Raspberry Pi 3 or 4
 
-Use the Linux install procedure
+[Use the Linux install procedure](#docker-for-linux-install-procedure)
 
 ***
 
 ### Rock960
 
-Use the Linux install procedure
+[Use the Linux install procedure](#docker-for-linux-install-procedure)
