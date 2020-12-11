@@ -1,7 +1,25 @@
-## Docker Setup 
+# Docker Setup 
 
 The setup section covers how to install and use docker on various types of machine that may be on your desk, in the cloud, or at the edge. 
 Before the setup details for different machines, it is helpful to have an overview of the setup landscape.
+
+## Table of Contents
+
+- [Setup landscape]()
+- [Target: Workstation]()
+   - Install Docker on a Windows 10 on Arm laptop (--> 2.1)
+   - Arm Linux laptop (--> 2.1)
+   - Arm Chromebooks (--> 2.1)
+   - Windows 10 on x86_64 (--> 2.2)
+   - Linux on x86_64 (--> 2.2)
+- [Target: Cloud]()
+   - AWS Graviton
+   - Setup Graviton as remote builder
+- [Target: Edge]()
+   - Raspberry Pi 3 or 4
+   - Rock960
+
+***
 
 ### Setup landscape
 
@@ -77,11 +95,11 @@ $ sudo /etc/init.d/docker start
 The Linux install will get the current docker release. [Review the script contents in a browser](https://get.docker.com/)
 
 ***More info***
-There are numerous Linux distribution options from the Microsoft Store.
-There is no Docker Desktop for Windows on Arm. Show your support for Docker Desktop on Arm at: 
-https://github.com/docker/roadmap/issues/91 
-For more information about installing WSL 2 visit:
-https://docs.microsoft.com/en-us/windows/wsl/install-win10 
+- There are numerous Linux distribution options from the Microsoft Store.
+- There is no Docker Desktop for Windows on Arm. Show your support for Docker Desktop on Arm [here](https://github.com/docker/roadmap/issues/91).
+- For more information about [installing WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+***
 
 ### Install Docker on Arm Linux laptop
 
@@ -117,6 +135,8 @@ The pacman install will get the current docker release.
 
 Nothing right now. 
 
+***
+
 ### Install Docker on Arm Chromebooks
 
 ***Example systems are:***
@@ -142,6 +162,8 @@ $ newgrp docker     (if you don’t want to log out and back in)
 $ docker run hello-world
 ```
 
+***
+
 ### Install Docker on Windows 10 on x86_64
 
 ***Prerequisites***
@@ -157,6 +179,8 @@ $ docker run hello-world
 ***More Info***
 
 More information on the Docker Desktop on Windows [User Manual](https://docs.docker.com/docker-for-windows/).
+
+***
 
 ### Install Linux on x86_64
 
@@ -184,6 +208,8 @@ $ docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd44
 
 For more details [refer to the project](https://github.com/docker/binfmt)
 
+***
+
 ## Target: In the cloud
 
 ### AWS Graviton
@@ -192,11 +218,15 @@ Getting started guide in GitHub https://github.com/aws/aws-graviton-getting-star
 2) Setup Graviton as remote builder
 Differences between Graviton 1 and Graviton 2
 
+***
+
 ## Target: At the edge
 
 ### Raspberry Pi 3 or 4
 
 Use the Linux install procedure
+
+***
 
 ### Rock960
 
