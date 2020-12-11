@@ -2,31 +2,33 @@
 
 Docker containers are everywhere, primarily because they run the same everywhere. Containers are used on all major operating systems, on all major computing architectures to build, share, and run software. 
 As more and more of the world’s computing happens on the Arm architecture, developers are looking for resources to make container development and deployment as easy as possible. 
+
 We hope you find these ideas helpful.
 
 ## Table of Contents
-1. Setup (setup.md)
-   1.1. Workstation
-      1.1.1. Install Docker on a Windows 10 on Arm laptop (--> 2.1)
-      1.1.2. Arm Linux laptop (--> 2.1)
-      1.1.3. Arm Chromebooks (--> 2.1)
-      1.1.4. Windows 10 on x86_64 (--> 2.2)
-      1.1.5. Linux on x86_64 (--> 2.2)
-   1.2. Cloud
-      1.2.1. AWS Graviton
-      1.2.2. Setup Graviton as remote builder
-   1.3. Edge
-      1.3.1. Raspberry Pi 3 or 4
-      1.3.2. Rock960
-   1.4. (Optional) Docker Experimental features
-2. Build (build.md) 
-   2.1. Windows 10 on Arm laptop OR Arm Linux laptop OR Arm Chromebook with Linux
-   2.2. Windows 10/Linux on x86_64 laptop
-      2.2.1. Build and run local
-      2.2.2. Build on Remote machine and Run local
-   2.3. Use GitHub actions to build and push Arm-based docker images
-      2.3.1. Use buildx to build multi-architecture Arm images
-      2.3.2. Use build with Arm self-hosted runner
+
+- 1) Setup
+   - 1.1) Workstation
+      - 1.1.1) Install Docker on a Windows 10 on Arm laptop (--> 2.1)
+      - 1.1.2) Arm Linux laptop (--> 2.1)
+      - 1.1.3) Arm Chromebooks (--> 2.1)
+      - 1.1.4) Windows 10 on x86_64 (--> 2.2)
+      - 1.1.5) Linux on x86_64 (--> 2.2)
+   - 1.2) Cloud
+      - 1.2.1) AWS Graviton
+      - 1.2.2) Setup Graviton as remote builder
+   - 1.3) Edge
+      - 1.3.1) Raspberry Pi 3 or 4
+      - 1.3.2) Rock960
+   - 1.4) (Optional) Docker Experimental features
+- 2) Build (build.md) 
+   - 2.1) Windows 10 on Arm laptop OR Arm Linux laptop OR Arm Chromebook with Linux
+   - 2.2) Windows 10/Linux on x86_64 laptop
+      - 2.2.1) Build and run local
+      - 2.2.2) Build on Remote machine and Run local
+   - 2.3) Use GitHub actions to build and push Arm-based docker images
+      - 2.3.1) Use buildx to build multi-architecture Arm images
+      - 2.3.2) Use build with Arm self-hosted runner
 
 ## Docker Setup 
 
