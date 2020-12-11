@@ -1,7 +1,7 @@
 # Docker Setup 
 
 The setup section covers how to install and use docker on various types of machine that may be on your desk, in the cloud, or at the edge. 
-Before the setup details for different machines, it is helpful to have an overview of the setup landscape.
+Before the setup details for different machines, it is helpful to have an overview of the [setup landscape](#setup-landscape).
 
 ## Table of Contents
 
