@@ -38,9 +38,9 @@ $ ./run.sh
 
 This is a local docker image build and run on a Windows 10 on Arm laptop using WSL. It looks just like Linux and will create an Arm image and run a container to print the architecture of the machine from the uname command. 
 
-### Windows 10/Linux on x86_64 laptop
-
 ***
+
+### Windows 10/Linux on x86_64 laptop
 
 ### Build and Run local
 
