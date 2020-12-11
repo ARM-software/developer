@@ -24,8 +24,8 @@ Before the setup details for different machines, it is helpful to have an overvi
 
 ***Docker products***
 
-- Docker Desktop for Windows and Mac  https://www.docker.com/products/docker-desktop
-- Docker engine for Linux      https://www.docker.com/products/container-runtime
+- [Docker Desktop for Windows and Mac](https://www.docker.com/products/docker-desktop)
+- [Docker engine for Linux](https://www.docker.com/products/container-runtime)
 
 ***Docker Desktop versions:***
 
