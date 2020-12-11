@@ -5,19 +5,18 @@ Before the setup details for different machines, it is helpful to have an overvi
 
 ## Table of Contents
 
-- [Setup landscape]()
-- [Target: Workstation]()
-   - Install Docker on a Windows 10 on Arm laptop (--> 2.1)
-   - Arm Linux laptop (--> 2.1)
-   - Arm Chromebooks (--> 2.1)
-   - Windows 10 on x86_64 (--> 2.2)
-   - Linux on x86_64 (--> 2.2)
-- [Target: Cloud]()
-   - AWS Graviton
-   - Setup Graviton as remote builder
-- [Target: Edge]()
-   - Raspberry Pi 3 or 4
-   - Rock960
+- [Setup landscape](#setup-landscape)
+- [Target: Workstation](#target-workstation)
+   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop) (--> 2.1)
+   - [Arm Linux laptop](#install-docker-on-arm-linux-laptop) (--> 2.1)
+   - [Arm Chromebooks](#install-docker-on-arm-chromebooks) (--> 2.1)
+   - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64) (--> 2.2)
+   - [Linux on x86_64](#install-linux-on-x86_64) (--> 2.2)
+- [Target: Cloud](#target-in-the-cloud)
+   - [AWS Graviton](#aws-graviton)
+- [Target: Edge](#target-at-the-edge)
+   - [Raspberry Pi 3 or 4](#raspberry-pi-3-or-4)
+   - [Rock960](#rock960)
 
 ***
 
@@ -73,7 +72,7 @@ $ uname -m
 - Install WSL 2 on the Windows 10 on Arm laptop. 
 - Install the Ubuntu 20.04 Linux distribution in WSL 2 from the Microsoft Store.
 
-***[More information available here](https://dev.to/aws-builders/windows-10-on-arm-with-wsl-2-2kbg)
+***[More information available here](https://dev.to/aws-builders/windows-10-on-arm-with-wsl-2-2kbg)***
 
 ***Do it***
 
