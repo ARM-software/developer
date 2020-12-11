@@ -98,7 +98,7 @@ The Linux install will get the current docker release. [Review the script conten
 - There is no Docker Desktop for Windows on Arm. Show your support for Docker Desktop on Arm [here](https://github.com/docker/roadmap/issues/91).
 - For more information about [installing WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
 
 ***
 
@@ -136,6 +136,8 @@ The pacman install will get the current docker release.
 
 Nothing right now. 
 
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
+
 ***
 
 ### Install Docker on Arm Chromebooks
@@ -163,6 +165,8 @@ $ newgrp docker     (if you don’t want to log out and back in)
 $ docker run hello-world
 ```
 
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
+
 ***
 
 ### Install Docker on Windows 10 on x86_64
@@ -180,6 +184,8 @@ $ docker run hello-world
 ***More Info***
 
 More information on the Docker Desktop on Windows [User Manual](https://docs.docker.com/docker-for-windows/).
+
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
 
 ***
 
@@ -208,6 +214,8 @@ $ docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd44
 ***More Info***
 
 For more details [refer to the project](https://github.com/docker/binfmt)
+
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
 
 ***
 
