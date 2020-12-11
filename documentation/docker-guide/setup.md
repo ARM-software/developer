@@ -7,11 +7,11 @@ Before the setup details for different machines, it is helpful to have an overvi
 
 - [Setup landscape](#setup-landscape)
 - [Target: Workstation](#target-workstation)
-   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop) (--> 2.1)
-   - [Arm Linux laptop](#install-docker-on-arm-linux-laptop) (--> 2.1)
-   - [Arm Chromebooks](#install-docker-on-arm-chromebooks) (--> 2.1)
-   - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64) (--> 2.2)
-   - [Linux on x86_64](#install-linux-on-x86_64) (--> 2.2)
+   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
+   - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
+   - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
+   - [Linux on x86_64](#install-linux-on-x86_64)
 - [Target: Cloud](#target-in-the-cloud)
    - [AWS Graviton](#aws-graviton)
 - [Target: Edge](#target-at-the-edge)
@@ -97,6 +97,8 @@ The Linux install will get the current docker release. [Review the script conten
 - There are numerous Linux distribution options from the Microsoft Store.
 - There is no Docker Desktop for Windows on Arm. Show your support for Docker Desktop on Arm [here](https://github.com/docker/roadmap/issues/91).
 - For more information about [installing WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)
 
 ***
 
