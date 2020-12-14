@@ -54,6 +54,19 @@ $ docker run hello-world
 $ uname -m
 ```
 
+If this Linux Install prodedure does not work for you, please select a different target device and proceed from there:
+- [Target: Workstation](#target-workstation)
+   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
+   - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
+   - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
+   - [Linux on x86_64](#install-linux-on-x86_64)
+- [Target: Cloud](#target-in-the-cloud)
+   - [AWS Graviton](#aws-graviton)
+- [Target: Edge](#target-at-the-edge)
+   - [Raspberry Pi 3 or 4](#raspberry-pi-3-or-4)
+   - [Rock960](#rock960)
+
 ***
 
 ## Target: Workstation
