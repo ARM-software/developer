@@ -52,7 +52,7 @@ $ docker run hello-world
 $ uname -m
 ```
 
-If this Linux Install prodedure does not work for you, please select a different target device and proceed from there:
+If this Linux Install procedure does not work for you, or if you're using a Windows 10 x86_64 machine please select a different target device and proceed from there:
 - [Target: Workstation](#target-workstation)
    - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
@@ -200,7 +200,7 @@ More information on the Docker Desktop on Windows [User Manual](https://docs.doc
 
 ***
 
-### Install Linux on x86_64
+### Install Docker on Linux on x86_64
 
 ***Prerequisites***
 
@@ -237,10 +237,6 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 ***Use the Linux install procedure***
 
 [Getting started guide in GitHub](https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md )
-
-***Setup Graviton as remote builder***
-
-Differences between Graviton 1 and Graviton 2
 
 ***
 
