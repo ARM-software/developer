@@ -22,7 +22,7 @@ Before we dive into the setup details for different machines, it is helpful to h
 
 ### Tool Requirements
 
-Depending on the operating system you're using, choose the appropriate Docker product to download.
+Depending on the operating system you're using, there are different Docker products available to download.
 
 ***Docker products***
 
@@ -34,6 +34,8 @@ Depending on the operating system you're using, choose the appropriate Docker pr
 - The Stable channel gives you latest releases for general availability.
 - The Test channel gives pre-releases that are ready for testing before general availability (GA). Replace get.docker.com with test.docker.com below to get the test version.
 
+### Install Docker
+Let's proceed now with the installation of Docker. The Docker for Linux install procedure covers a majority of the target devices.  
 
 ### Docker for Linux install procedure
 
@@ -54,7 +56,7 @@ $ uname -m
 
 If this Linux Install procedure does not work for you, or if you're using a Windows 10 x86_64 machine please select a different target device and proceed from there:
 - [Target: Workstation](#target-workstation)
-   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
