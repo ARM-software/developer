@@ -1,11 +1,11 @@
 # Docker Setup 
 
 The setup section covers how to install and use docker on various types of machine that may be on your desk, in the cloud, or at the edge. 
-Before the setup details for different machines, it is helpful to have an overview of the [setup landscape](#setup-landscape).
+Before we dive into the setup details for different machines, it is helpful to have an overview of [Tool Requirements](#tool-requirements).
 
 ## Table of Contents
 
-- [Setup landscape](#setup-landscape)
+- [Tool Requirements](#tool-requirements)
 - [Target: Workstation](#target-workstation)
    - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
@@ -20,26 +20,24 @@ Before the setup details for different machines, it is helpful to have an overvi
 
 ***
 
-### Setup landscape
+### Tool Requirements
+
+Depending on the operating system you're using, choose the appropriate Docker product to download.
 
 ***Docker products***
 
 - [Docker Desktop for Windows and Mac](https://www.docker.com/products/docker-desktop)
-- [Docker engine for Linux](https://www.docker.com/products/container-runtime)
-
-***Docker Desktop versions:***
-
-- Stable
-- Edge
+- [Docker Engine for Linux](https://www.docker.com/products/container-runtime)
 
 ***Docker Engine versions***
 
 - The Stable channel gives you latest releases for general availability.
 - The Test channel gives pre-releases that are ready for testing before general availability (GA). Replace get.docker.com with test.docker.com below to get the test version.
 
+
 ### Docker for Linux install procedure
 
-Almost universal, this works for many Linux distributions. 
+Almost universal, this procedure works for many Linux distributions. 
 
 ```shell
 $ curl -fsSL get.docker.com -o get-docker.sh
