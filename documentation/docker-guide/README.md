@@ -10,7 +10,7 @@ We hope you find these ideas helpful.
 ## Table of Contents
 
 - [Setup](/documentation/docker-guide/setup.md)
-   - [Linux users](/documentation/docker-guide/setup.md#setup-landscape)
+   - [Tool Requirements](/documentation/docker-guide/setup.md#tool-requirements)
    - [Workstation](/documentation/docker-guide/setup.md#target-workstation)
       - [Install Docker on a Windows 10 on Arm laptop](/documentation/docker-guide/setup.md#install-docker-on-a-windows-10-on-arm-laptop)
       - [Arm Linux laptop](/documentation/docker-guide/setup.md#install-docker-on-arm-linux-laptop)
