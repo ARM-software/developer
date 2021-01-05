@@ -7,7 +7,7 @@ Before we dive into the setup details for different machines, it is helpful to h
 
 - [Tool Requirements](#tool-requirements)
 - [Target: Workstation](#target-workstation)
-   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Arm Windows 10 laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)

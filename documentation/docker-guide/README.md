@@ -12,7 +12,7 @@ We hope you find these ideas helpful.
 - [Setup](/documentation/docker-guide/setup.md)
    - [Tool Requirements](/documentation/docker-guide/setup.md#tool-requirements)
    - [Workstation](/documentation/docker-guide/setup.md#target-workstation)
-      - [Install Docker on a Windows 10 on Arm laptop](/documentation/docker-guide/setup.md#install-docker-on-a-windows-10-on-arm-laptop)
+      - [Arm Windows 10 laptop](/documentation/docker-guide/setup.md#install-docker-on-a-windows-10-on-arm-laptop)
       - [Arm Linux laptop](/documentation/docker-guide/setup.md#install-docker-on-arm-linux-laptop)
       - [Arm Chromebooks](/documentation/docker-guide/setup.md#install-docker-on-arm-chromebooks)
       - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
