@@ -1,13 +1,13 @@
 # Docker Setup 
 
 The setup section covers how to install and use docker on various types of machine that may be on your desk, in the cloud, or at the edge. 
-Before the setup details for different machines, it is helpful to have an overview of the [setup landscape](#setup-landscape).
+Before we dive into the setup details for different machines, it is helpful to have an overview of [Tool Requirements](#tool-requirements).
 
 ## Table of Contents
 
-- [Setup landscape](#setup-landscape)
+- [Tool Requirements](#tool-requirements)
 - [Target: Workstation](#target-workstation)
-   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Arm Windows 10 laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
@@ -20,26 +20,26 @@ Before the setup details for different machines, it is helpful to have an overvi
 
 ***
 
-### Setup landscape
+### Tool Requirements
+
+Depending on the operating system you're using, there are different Docker products available to download.
 
 ***Docker products***
 
 - [Docker Desktop for Windows and Mac](https://www.docker.com/products/docker-desktop)
-- [Docker engine for Linux](https://www.docker.com/products/container-runtime)
-
-***Docker Desktop versions:***
-
-- Stable
-- Edge
+- [Docker Engine for Linux](https://www.docker.com/products/container-runtime)
 
 ***Docker Engine versions***
 
 - The Stable channel gives you latest releases for general availability.
 - The Test channel gives pre-releases that are ready for testing before general availability (GA). Replace get.docker.com with test.docker.com below to get the test version.
 
+### Install Docker
+Let's proceed now with the installation of Docker. The Docker for Linux install procedure covers a majority of the target devices.  
+
 ### Docker for Linux install procedure
 
-Almost universal, this works for many Linux distributions. 
+Almost universal, this procedure works for many Linux distributions. 
 
 ```shell
 $ curl -fsSL get.docker.com -o get-docker.sh
@@ -54,9 +54,9 @@ $ docker run hello-world
 $ uname -m
 ```
 
-If this Linux Install prodedure does not work for you, please select a different target device and proceed from there:
+If this Linux Install procedure does not work for you, or if you're using a Windows 10 x86_64 machine please select a different target device and proceed from there:
 - [Target: Workstation](#target-workstation)
-   - [Install Docker on a Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
+   - [Windows 10 on Arm laptop](#install-docker-on-a-windows-10-on-arm-laptop)
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
@@ -111,7 +111,7 @@ The Linux install will get the current docker release. [Review the script conten
 - There is no Docker Desktop for Windows on Arm. Show your support for Docker Desktop on Arm [here](https://github.com/docker/roadmap/issues/91).
 - For more information about [installing WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
 
 ***
 
@@ -149,7 +149,7 @@ The pacman install will get the current docker release.
 
 Nothing right now. 
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
 
 ***
 
@@ -178,7 +178,7 @@ $ newgrp docker     (if you don’t want to log out and back in)
 $ docker run hello-world
 ```
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#windows-10-on-arm-laptop-or-arm-linux-laptop-or-arm-chromebook-with-linux)***
 
 ***
 
@@ -198,11 +198,11 @@ $ docker run hello-world
 
 More information on the Docker Desktop on Windows [User Manual](https://docs.docker.com/docker-for-windows/).
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
 
 ***
 
-### Install Linux on x86_64
+### Install Docker on Linux on x86_64
 
 ***Prerequisites***
 
@@ -228,7 +228,7 @@ $ docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd44
 
 For more details [refer to the project](https://github.com/docker/binfmt)
 
-***[Proceed to build instruction](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#windows-10linux-on-x86_64-laptop)***
 
 ***
 
@@ -236,13 +236,11 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### AWS Graviton
 
-***Use the Linux install procedure***
+[Use the Linux install procedure](#docker-for-linux-install-procedure)
+
+***More Info***
 
 [Getting started guide in GitHub](https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md )
-
-***Setup Graviton as remote builder***
-
-Differences between Graviton 1 and Graviton 2
 
 ***
 
