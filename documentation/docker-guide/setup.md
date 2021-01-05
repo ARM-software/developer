@@ -236,7 +236,9 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### AWS Graviton
 
-***Use the Linux install procedure***
+[Use the Linux install procedure](#docker-for-linux-install-procedure)
+
+***More Info***
 
 [Getting started guide in GitHub](https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md )
 
