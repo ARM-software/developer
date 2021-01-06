@@ -72,7 +72,9 @@ $ ./run.sh
 ```
 
 ***How it works***
+
 A multi-architecture docker image with the C application hello-world will be created and pushed to Docker Hub. The multi-architecture image is then run on either Windows 10/Linux x86_64 laptop, even if the container was also created for the Arm architecture.
+
 ***
 
 ### Build on Remote Arm machine(AWS Graviton1/Graviton2) and Run on local Arm machine
@@ -109,7 +111,9 @@ $./local-run.sh
 ```
 
 ***How it works***
+
 An Arm architecture docker image with the C hello-world application is built on a remote machine. This image is pushed to Docker Hub. The image is then run on a local Arm machine.
+
 ***
 
 ### Use GitHub actions to build and push Arm-based docker images
