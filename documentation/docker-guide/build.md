@@ -77,20 +77,20 @@ A multi-architecture docker image with the C application hello-world will be cre
 
 ***
 
-### Build on Remote machine and Run on local
+### Build on Remote machine and Run local
 
 ***Prerequisites***
 
 - Docker installed on remote AWS Graviton1/Graviton2 machine
 - SSH-Key Authorization: SSH access to a remote docker host with a key-based authentication
 
-***For local Linux Arm machines:***
+***For local Linux machines:***
 ```shell
 $ eval $(ssh-agent)
 $ ssh-add <ssh-private-key>
 ```
 
-***For local Windows Arm machines:***
+***For local Windows machines:***
 ```shell
 $ start-ssh-agent.cmd
 $ ssh-add <ssh-private-key>
