@@ -6,7 +6,7 @@
 - [Use GitHub actions to build and push Arm-based docker images](#use-github-actions-to-build-and-push-arm-based-docker-images)
    - [Use buildx to build multi-architecture Arm images](#use-buildx-to-build-multi-architecture-arm-images)
    - [Use build with Arm self-hosted runner](#use-build-with-arm-self-hosted-runner)
-- [Raspberry Pi 3 or 4](#run-on-raspberry-pi)
+- [Raspberry Pi 3 or 4](#run-on-raspberry-pi-3-or-4)
 ***
 
 ## Build and Run
@@ -171,7 +171,7 @@ The previous approach uses the GitHub runner to run the GitHub Actions. You can 
 
 Pull an existing Arm container from Docker Hub and run it on the Raspberry Pi 3 or Raspberry Pi 4.  
 
-***Prerequisites ***
+***Prerequisites:***
 
 Docker is installed on the Raspberry Pi.  
 
