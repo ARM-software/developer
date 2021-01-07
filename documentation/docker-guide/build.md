@@ -77,7 +77,7 @@ A multi-architecture docker image with the C application hello-world will be cre
 
 ***
 
-### Build on Remote Arm machine(AWS Graviton1/Graviton2) and Run on local machine
+### Build on Remote machine and Run on local
 
 ***Prerequisites***
 
