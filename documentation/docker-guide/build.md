@@ -6,7 +6,7 @@
 - [Use GitHub actions to build and push Arm-based docker images](#use-github-actions-to-build-and-push-arm-based-docker-images)
    - [Use buildx to build multi-architecture Arm images](#use-buildx-to-build-multi-architecture-arm-images)
    - [Use build with Arm self-hosted runner](#use-build-with-arm-self-hosted-runner)
-
+- [Raspberry Pi 3 or 4](#run-on-raspberry-pi)
 ***
 
 ## Build and Run
@@ -77,7 +77,7 @@ A multi-architecture docker image with the C application hello-world will be cre
 
 ***
 
-### Build on Remote Arm machine(AWS Graviton1/Graviton2) and Run on local Arm machine
+### Build on Remote Arm machine(AWS Graviton1/Graviton2) and Run on local machine
 
 ***Prerequisites***
 
@@ -112,7 +112,7 @@ $./local-run.sh
 
 ***How it works***
 
-An Arm architecture docker image with the C hello-world application is built on a remote machine. This image is pushed to Docker Hub. The image is then run on a local Arm machine.
+An Arm architecture docker image with the C hello-world application is built on a remote machine. This image is pushed to Docker Hub. The image is then pulled from Docker Hub and run on a local machine.
 
 ***
 
@@ -126,7 +126,7 @@ An Arm architecture docker image with the C hello-world application is built on 
 - A Docker Hub Account – a registry to push your image to
 - A sample workflow and C language [hello world example](https://github.com/pareenaverma/docker-projects)
 
-***Do It***
+***Do it***
 
 - Fork the https://github.com/pareenaverma/docker-projects repository
 - The GitHub actions are in a specific directory .github/workflows
@@ -156,7 +156,7 @@ The previous approach uses the GitHub runner to run the GitHub Actions. You can 
 - A Docker Hub Account – a registry to push your image to
 - A sample workflow and C language [hello world example](https://github.com/pareenaverma/docker-projects)
 
-***Do It***
+***Do it***
 
 - Fork [this repository](https://github.com/pareenaverma/docker-projects)
 - Follow the steps under Adding a self-hosted runner to a repository. On step 5 select Operating System: Linux and Architecture: ARM64
@@ -166,3 +166,23 @@ The previous approach uses the GitHub runner to run the GitHub Actions. You can 
 - Commit any simple change to your forked repository. The example workflow is setup to trigger when you push code to your repository.  Make sure your self-hosted runner is running.
 - Go to the ‘Actions” menu on your repository to view the live actions when you commit a change.
 - The Arm-docker image “c-hello-world" is built and pushed to the DockerHub registry. You can also log into Docker Hub and see your image pushed there.
+
+#### Run on Raspberry Pi 3 or 4
+
+Pull an existing Arm container from Docker Hub and run it on the Raspberry Pi 3 or Raspberry Pi 4.  
+
+***Prerequisites ***
+
+Docker is installed on the Raspberry Pi.  
+
+***Do it***
+
+```shell
+$ docker pull jasonrandrews/c-hello-world 
+$ docker run --rm -it c-hello-world 
+```
+
+***How it works***
+
+The docker pull command will download the image from Docker Hub on to the local machine, and the docker run command will run it. The image was built on another Arm machine and runs seamlessly on the Raspberry Pi.  
+
