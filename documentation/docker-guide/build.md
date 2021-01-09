@@ -6,7 +6,7 @@
 - [Use GitHub actions to build and push Arm-based docker images](#use-github-actions-to-build-and-push-arm-based-docker-images)
    - [Use buildx to build multi-architecture Arm images](#use-buildx-to-build-multi-architecture-arm-images)
    - [Use build with Arm self-hosted runner](#use-build-with-arm-self-hosted-runner)
-
+- [Raspberry Pi 3 or 4](#run-on-raspberry-pi-3-or-4)
 ***
 
 ## Build and Run
@@ -46,6 +46,12 @@ This is a local docker image build and run on a Windows 10 on Arm laptop using W
 
 ***Prerequisites***
 
+A Docker ID to access [Docker Hub](https://hub.docker.com/) is required to push images to Docker Hub and share them.
+
+Visit Docker Hub and create a new account using the [Sign up for Docker Hub](https://hub.docker.com/signup) link.
+
+Once the account is created verify it can be used to login to Docker Hub.
+
 Get the C language hello-world example
 
 ```shell
@@ -58,12 +64,16 @@ $ git clone https://github.com/pareenaverma/docker-projects
 $ cd c-hello-world
 ```
 
-Make sure to edit the scripts to change the Docker ID and make sure to login to Docker Hub so the images will get pushed
+Make sure to edit the build and run scripts to point to your Docker ID before running them.
 
 ```shell
 $ ./build.sh
 $ ./run.sh 
 ```
+
+***How it works***
+
+A multi-architecture docker image with the C application hello-world will be created and pushed to Docker Hub. The multi-architecture image is then run on either Windows 10/Linux x86_64 laptop, even if the container was also created for the Arm architecture.
 
 ***
 
@@ -71,16 +81,16 @@ $ ./run.sh
 
 ***Prerequisites***
 
-- Docker installed on remote machine
+- Docker installed on remote AWS Graviton1/Graviton2 machine
 - SSH-Key Authorization: SSH access to a remote docker host with a key-based authentication
 
-***For Linux machines:***
+***For local Linux machines:***
 ```shell
 $ eval $(ssh-agent)
 $ ssh-add <ssh-private-key>
 ```
 
-***For Windows:***
+***For local Windows machines:***
 ```shell
 $ start-ssh-agent.cmd
 $ ssh-add <ssh-private-key>
@@ -92,13 +102,17 @@ $ ssh-add <ssh-private-key>
 $ cd c-hello-world
 ```
 
-Edit remote-build.sh to point to the username and IP address of your AWS Graviton1/Graviton2 instance
+Edit both remote-build.sh and local-run.sh to point to your Docker ID. Also edit remote-build.sh to point to the username and IP address of your AWS Graviton1/Graviton2 instance.
 
 ```shell
 $ ./remote-build.sh
 $ docker context use default
 $./local-run.sh
 ```
+
+***How it works***
+
+An Arm architecture docker image with the C hello-world application is built on a remote machine. This image is pushed to Docker Hub. The image is then pulled from Docker Hub and run on a local machine.
 
 ***
 
@@ -112,11 +126,12 @@ $./local-run.sh
 - A Docker Hub Account – a registry to push your image to
 - A sample workflow and C language [hello world example](https://github.com/pareenaverma/docker-projects)
 
-***Do It***
+***Do it***
 
 - Fork the https://github.com/pareenaverma/docker-projects repository
 - The GitHub actions are in a specific directory .github/workflows
 - Inspect the dockerbuildimg.yml file – this file contains the GitHub actions needed to build and push the Arm docker image for the c-hello-world to your Docker Hub account
+- Edit the dockerbuildimg.yml file - change the DOCKER_IMAGE Docker ID to point to your Docker ID 
 - Add the DOCKER_USERNAME and DOCKER_PASSWORD secrets to your GitHub repository. These point to your username and password of your DockerHub account.
    - Follow the steps under [“Creating encrypting secrets for a repository”](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) 
 - Commit any simple change to your forked repository.
@@ -141,7 +156,7 @@ The previous approach uses the GitHub runner to run the GitHub Actions. You can 
 - A Docker Hub Account – a registry to push your image to
 - A sample workflow and C language [hello world example](https://github.com/pareenaverma/docker-projects)
 
-***Do It***
+***Do it***
 
 - Fork [this repository](https://github.com/pareenaverma/docker-projects)
 - Follow the steps under Adding a self-hosted runner to a repository. On step 5 select Operating System: Linux and Architecture: ARM64
@@ -150,4 +165,24 @@ The previous approach uses the GitHub runner to run the GitHub Actions. You can 
 - Add the ```DOCKER_USERNAME and DOCKER_PASSWORD``` secrets to your GitHub repository. These point to your username and password of your DockerHub account. Follow the steps under [“Creating encrypting secrets for a repository”](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) 
 - Commit any simple change to your forked repository. The example workflow is setup to trigger when you push code to your repository.  Make sure your self-hosted runner is running.
 - Go to the ‘Actions” menu on your repository to view the live actions when you commit a change.
-- The Arm-docker image “c-hello-world-github" is built and pushed to the DockerHub registry. You can also log into Docker Hub and see your image pushed there.
+- The Arm-docker image “c-hello-world" is built and pushed to the DockerHub registry. You can also log into Docker Hub and see your image pushed there.
+
+#### Run on Raspberry Pi 3 or 4
+
+Pull an existing Arm container from Docker Hub and run it on the Raspberry Pi 3 or Raspberry Pi 4.  
+
+***Prerequisites:***
+
+Docker is installed on the Raspberry Pi.  
+
+***Do it***
+
+```shell
+$ docker pull jasonrandrews/c-hello-world 
+$ docker run --rm -it c-hello-world 
+```
+
+***How it works***
+
+The docker pull command will download the image from Docker Hub on to the local machine, and the docker run command will run it. The image was built on another Arm machine and runs seamlessly on the Raspberry Pi.  
+

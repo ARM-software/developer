@@ -236,11 +236,16 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### AWS Graviton
 
+***Do it***
+
 [Use the Linux install procedure](#docker-for-linux-install-procedure)
 
 ***More Info***
 
 [Getting started guide in GitHub](https://github.com/aws/aws-graviton-getting-started/blob/master/containers.md )
+[Get started with AWS Graviton-based EC2 instances](https://aws.amazon.com/ec2/graviton/)
+
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#build-on-remote-machine-and-run-local)***
 
 ***
 
@@ -248,7 +253,11 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### Raspberry Pi 3 or 4
 
+***Do it***
+
 [Use the Linux install procedure](#docker-for-linux-install-procedure)
+
+***[Proceed to build and run instructions](/documentation/docker-guide/build.md/#run-on-raspberry-pi-3-or-4)***
 
 ***
 
