@@ -11,7 +11,7 @@ Before we dive into the setup details for different machines, it is helpful to h
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
-   - [Linux on x86_64](#install-linux-on-x86_64)
+   - [Linux on x86_64](#install-docker-on-linux-on-x86_64)
 - [Target: Cloud](#target-in-the-cloud)
    - [AWS Graviton](#aws-graviton)
 - [Target: Edge](#target-at-the-edge)

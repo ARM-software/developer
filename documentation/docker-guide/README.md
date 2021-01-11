@@ -3,6 +3,7 @@
 Docker containers are everywhere, primarily because they run the same everywhere. Containers are used on all major operating systems, on all major computing architectures to build, share, and run software. 
 As more and more of the world’s computing happens on the Arm architecture, developers are looking for resources to make container development and deployment as easy as possible. 
 
+We start by walking you through installing and deploying Docker on a variety of target machines. We then demonstrate how to use Docker to build, share and run containers using the simple examples provided. 
 We hope you find these ideas helpful.
 
 ### [Get Started](/documentation/docker-guide/setup.md#docker-setup)
@@ -15,8 +16,8 @@ We hope you find these ideas helpful.
       - [Arm Windows 10 laptop](/documentation/docker-guide/setup.md#install-docker-on-a-windows-10-on-arm-laptop)
       - [Arm Linux laptop](/documentation/docker-guide/setup.md#install-docker-on-arm-linux-laptop)
       - [Arm Chromebooks](/documentation/docker-guide/setup.md#install-docker-on-arm-chromebooks)
-      - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
-      - [Linux on x86_64](/documentation/docker-guide/setup.md#install-linux-on-x86_64)
+      - [Windows 10 on x86_64](/documentation/docker-guide/setup.md/#install-docker-on-windows-10-on-x86_64)
+      - [Linux on x86_64](/documentation/docker-guide/setup.md#install-docker-on-linux-on-x86_64)
    - [Cloud](/documentation/docker-guide/setup.md#target-in-the-cloud)
       - [AWS Graviton](/documentation/docker-guide/setup.md#aws-graviton)
    - [Edge](/documentation/docker-guide/setup.md#target-at-the-edge)
