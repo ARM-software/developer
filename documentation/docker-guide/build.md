@@ -11,6 +11,8 @@
 
 ## Build and Run
 
+This section covers how to build, share and run Docker containers for simple applications on various types of machine that may be on your desk, in the cloud, or at the edge.
+
 ### Windows 10 on Arm laptop OR Arm Linux laptop OR Arm Chromebook with Linux
 
 Build a simple hello world example which prints the architecture of the machine. This is exactly the same on Windows 10 on Arm using WSL2, an Arm Linux laptop, or a Raspberry Pi 3 or 4 a running 64-bit operating system.

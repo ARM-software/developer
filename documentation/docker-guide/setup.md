@@ -11,7 +11,7 @@ Before we dive into the setup details for different machines, it is helpful to h
    - [Arm Linux laptop](#install-docker-on-arm-linux-laptop)
    - [Arm Chromebooks](#install-docker-on-arm-chromebooks)
    - [Windows 10 on x86_64](#install-docker-on-windows-10-on-x86_64)
-   - [Linux on x86_64](#install-linux-on-x86_64)
+   - [Linux on x86_64](#install-docker-on-linux-on-x86_64)
 - [Target: Cloud](#target-in-the-cloud)
    - [AWS Graviton](#aws-graviton)
 - [Target: Edge](#target-at-the-edge)
@@ -186,13 +186,12 @@ $ docker run hello-world
 
 ***Prerequisites***
 
-- Install docker desktop with WSL2 backend and enable experimental features for both the CLI and Daemon
+- Install Docker Desktop with WSL2 backend
 
 ***Do it***
 
 - Follow [this procedure](https://docs.docker.com/docker-for-windows/wsl/) to download and install Docker Desktop for Windows
-- Enable experimental features for both CLI and daemon
-- Docker Desktop includes the buildx plugin by default when experimental features are enabled. 
+- Docker Desktop includes the buildx plugin by default
 
 ***More Info***
 
@@ -213,7 +212,6 @@ More information on the Docker Desktop on Windows [User Manual](https://docs.doc
 ***Do it***
 
 - Use the general [Linux install procedure](#docker-for-linux-install-procedure) to install the latest verion 
-- Enable the ‘Experimental features’ to use docker buildx
 - Install the instruction emulation to register Arm executables to run on the x86 machine 
 
 ```shell
@@ -236,9 +234,15 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### AWS Graviton
 
+***Prerequisites***
+
+- Amazon Web Services (AWS) Account
+
 ***Do it***
 
-[Use the Linux install procedure](#docker-for-linux-install-procedure)
+Create and start an AWS-Graviton based EC2 instance
+
+On the running AWS-Graviton based EC2 instance [Use the Linux install procedure](#docker-for-linux-install-procedure)
 
 ***More Info***
 
