@@ -234,9 +234,14 @@ For more details [refer to the project](https://github.com/docker/binfmt)
 
 ### AWS Graviton
 
+***Prerequisites***
+
+- Amazon Web Services(AWS) Account
+
 ***Do it***
 
-[Use the Linux install procedure](#docker-for-linux-install-procedure)
+Create and start an AWS-Graviton based EC2 instance
+On the running AWS-Graviton based EC2 instance [Use the Linux install procedure](#docker-for-linux-install-procedure)
 
 ***More Info***
 
