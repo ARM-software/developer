@@ -1,8 +1,6 @@
 # Raspberry Pi Pico + RPi 4 for Intruder Detection
 
-<!-- The Raspberry Pi Pico is wired to a motion sensor that turns on the Raspberry Pi 4 when movement is detected. When turned on, the Raspberry Pi 4 uses a face recognition algorithm to recognize human faces and compare the detected face with the familiar faces stored on the Pi. It then makes a post request to IFTTT to send a notification to your phone if a stranger is detected. The script then turns off the Raspberry Pi to conserve energy. This coordination is enabled via a cron job that executes the CV script automatically on boot. -->
-
-<!-- ![Pico board](pico.png) -->
+For a more comprehensive guide check out this tutorial on [Hackster](https://www.hackster.io/grisaficarlo/low-power-iot-intruder-detector-with-rpi4-pico-4c37a9).
 
 ## Part 1: Testing Pico board and wiring up motion sensor 
 Wire-up the sensor such that:
