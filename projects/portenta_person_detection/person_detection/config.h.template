@@ -1,0 +1,18 @@
+/*
+config.h.template
+
+Rich Freedman, Chariot Solutions <https://chariotsolutions.com> for ARM
+
+Put your wifi access point credentials here and save as config.h
+DO NOT commit config.h to version control
+DO NOT save / commit this file with password present
+*/
+
+#ifndef PERSON_DETECTION_CONFIG_H
+#define PERSON_DETECTION_CONFIG_H
+
+#define WIFI_SSID "SSID"
+#define WIFI_PASS "PASS"
+#define SERVER_IP_ADDRESS "0.0.0.0"
+
+#endif // PERSON_DETECTION_CONFIG_H
