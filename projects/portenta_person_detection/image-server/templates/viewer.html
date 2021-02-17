@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <title>Image Viewer</title>
+
+        <style>
+            body {
+              min-width: 700px;
+            }
+
+            .header {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              margin-left:40px;
+              margin-right:40px;
+              margin-bottom: 80px;
+            }
+
+            .spacer {
+              width: 100px;
+            }
+
+            .title {
+              font-size:36px;
+            }
+
+            .container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .image {
+                width: 400px;
+                height: 400px;
+            }
+
+            .timestamp {
+                font-size: larger;
+                margin-top: 4px;
+                margin-bottom: 4px;
+            }
+
+            .scoreboard {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+
+              width: 384px;
+              margin-left: 30px;
+              margin-top: 10px;
+              font-size: larger;
+
+            }
+
+            .score {
+               display: inline-block;
+               margin-top:40px;
+            }
+
+            .recognition {
+              font-size: 24px;
+              margin-top: 10px;
+            }
+
+            .person {
+              display: none;
+              color: green;
+            }
+
+            .noperson {
+              display: none;
+              color: red;
+            }
+
+        </style>
+        <script>
+            function timestampStrToDate(str) {
+                var pieces = str.split('-');
+                return new Date(
+                       pieces[0].substr(0, 4) + '-' +
+                       pieces[0].substr(4, 2) + '-' +
+                       pieces[0].substr(6, 2) +
+                       'T' +
+                       pieces[1].substr(0, 2) + ":" +
+                       pieces[1].substr(2, 2) + ":" +
+                       pieces[1].substr(4, 2)
+                );
+            }
+        
+            function formatTimestamp(str) {
+                var pieces = str.split('-');
+                return pieces[0].substr(0, 4) + '-' +
+                       pieces[0].substr(4, 2) + '-' +
+                       pieces[0].substr(6, 2) +
+                       ' ' +
+                       pieces[1].substr(0, 2) + ":" +
+                       pieces[1].substr(2, 2) + ":" +
+                       pieces[1].substr(4, 2) +
+                       " ( " + timeSince(str) + " ago )";
+            }
+            
+            function timeSince(dateStr) {
+                // dateStr is a string in the format 20210126-130552
+                var date = new Date(timestampStrToDate(dateStr));
+
+                var seconds = Math.floor((new Date() - date) / 1000);
+                var interval = seconds / 31536000;
+
+                if (interval > 1) {
+                    return Math.floor(interval) + " years";
+                }
+
+                interval = seconds / 2592000;
+                if (interval > 1) {
+                    return Math.floor(interval) + " months";
+                }
+
+                interval = seconds / 86400;
+                if (interval > 1) {
+                    return Math.floor(interval) + " days";
+                }
+
+                interval = seconds / 3600;
+                if (interval > 1) {
+                    return Math.floor(interval) + " hours";
+                }
+
+                interval = seconds / 60;
+                if (interval > 1) {
+                    return Math.floor(interval) + " minutes";
+                }
+
+                return Math.floor(seconds) + " seconds";
+            }
+
+            function getData() {
+                fetch("/image-info")
+                .then(data => {return data.json()})
+                .then(res => {
+                    if(res.last_file && res.last_file.length > 0) {
+                    document.getElementById('image').src = res.last_file;
+                    document.getElementById('timestamp').innerHTML = formatTimestamp(res.last_file_timestamp);
+                    document.getElementById('person_score').innerHTML = "Person Score: " + res.person_score;
+                    document.getElementById('no_person_score').innerHTML = "No-Person Score: " + res.no_person_score;
+
+                    var recognition_person = document.getElementById('recognition_person');
+                    var recognition_no_person = document.getElementById('recognition_no_person');
+                    if(res.is_person) {
+                        recognition_person.style.display = "block";
+                        recognition_no_person.style.display = "none";
+                    } else {
+                        recognition_person.style.display = "none";
+                        recognition_no_person.style.display = "block";
+                    }
+                  }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <img class="logo" src="/static/site-images/Arm_logo_blue_150MD.png"/>
+            <div class="title">Arduino Portenta H7<br/><br/>TensorFlow<br/>Person Detection</div>
+        </div>
+
+        <div class="container">
+            <img id="image" src="/static/site-images/placeholder.png" class="image"/>
+            <div id="timestamp" class="timestamp"></div>
+
+            <div class="scoreboard">
+                <div id="person_score" class="score"></div>
+                <div id="no_person_score" class="score"></div>
+            </div>
+
+            <div id="recognition_person" class="recognition person">PERSON!</div>
+            <div id="recognition_no_person" class="recognition noperson">No Person</div>
+
+            <script>
+                setInterval(() => getData(), 1000);
+            </script>
+        </div>
+    </body>
+</html>
