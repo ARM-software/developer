@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#include "mbed.h"           // mbed library header - should be included by camera.h in the Arduino Portenta_Camera library instead
+#include "Arduino.h"        // required for use of camera.h in .cpp file
 #include "camera.h"         // header for the CameraClass class
 #include "image_provider.h" // the interface that is implemented here
 
