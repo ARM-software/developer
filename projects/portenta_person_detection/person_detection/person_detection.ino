@@ -15,7 +15,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/* Modified 2021-01-20 and 2021-02-16, Rich Freedman, Chariot Solutions for ARM
+/*
+   Modified 2021-01-20 and 2021-02-16, Rich Freedman, Chariot Solutions, Inc. (https://chariotsolutions.com)
+   for ARM (https://arm.com)
 
    - Make the code work with the Arduino Portenta H7 board and Portenta Vision Shield
      - Get image from camera at 320x240 (since it's the only size that works reliably right now)
