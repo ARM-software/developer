@@ -12,7 +12,7 @@ Please see [FAQ](FAQ.md).
 
 ## Recent contributions
 
-- [Build Python software to target multiple platforms](solutions/infrastructure/languages-and-libraries/python/multi-platform.md)
+- [Build Python software to target multiple platforms](projects/python-wheels/multi-platform.md)
 - [The Pico Project](projects/pico/README.md)
 
 ## Contributors
