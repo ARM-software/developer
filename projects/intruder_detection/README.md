@@ -5,6 +5,7 @@
 ## Option A: Turning on Raspberry Pi 4 with a motion sensor
 - wire up the sensor
 - flash the Pico with a script that turns a Pin on when motion is detected [main.py](./main.py)
+
 For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster.io/grisaficarlo/low-power-iot-intruder-detector-with-rpi4-pico-4c37a9).
 
 ## Option B: Turning on Raspberry Pi 4 using an ArduCAM 
@@ -13,6 +14,7 @@ For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster
 - substitute the [main_functions.cpp](./main_functions.cpp) file for the one in this repo 
 - build the tflite person detection example
 - flash the Pico with the generated person_detection_int8.uf2 file
+
 For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster.io/grisaficarlo/intruder-detection-with-arducam-on-pico-board-673f35).
 
 ## Part 2: Setting up RPi4 Computer Vision script, IFTTT and Cron job
