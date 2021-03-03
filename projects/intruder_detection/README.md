@@ -9,7 +9,7 @@ For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster
 
 ## Option B: Turning on Raspberry Pi 4 using an ArduCAM 
 - wire up the ArduCAM and the TTL-USB converter
-- fetch the ArduCAM drivers 
+- fetch the ArduCAM drivers and tflite person detection example
 - substitute the [main_functions.cpp](./main_functions.cpp) file for the one in this repo 
 - build the tflite person detection example
 - flash the Pico with the generated person_detection_int8.uf2 file
