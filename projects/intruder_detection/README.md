@@ -1,16 +1,22 @@
 # Raspberry Pi Pico + RPi 4 for Intruder Detection
 
-For a more comprehensive guide check out this tutorial on [Hackster](https://www.hackster.io/grisaficarlo/low-power-iot-intruder-detector-with-rpi4-pico-4c37a9).
+## Part 1: Turning on the Raspberry Pi 4 with one of the options below.
 
-## Part 1: Testing Pico board and wiring up motion sensor 
-Wire-up the sensor such that:
-* GP1 - power to the LED
-* GND1 - ground for LED
-* GP4 - power to the sensor (VCC)
-* GP5 - output of the sensor (OUT)
-* GND2 - ground pin of sensor (GND)
+## Option A: Turning on Raspberry Pi 4 with a motion sensor
+- wire up the sensor
+- flash the Pico with a script that turns a Pin on when motion is detected [main.py](./main.py)
 
-save the "main.py" script on the Pico and run it. The LED should turn on when the motion sensor is activated.
+For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster.io/grisaficarlo/low-power-iot-intruder-detector-with-rpi4-pico-4c37a9).
+
+## Option B: Turning on Raspberry Pi 4 using an ArduCAM 
+- wire up the ArduCAM and the TTL-USB converter
+- fetch the ArduCAM drivers and tflite person detection example
+- substitute the [main_functions.cpp](./main_functions.cpp) file for the one in this repo 
+- build the tflite person detection example
+- flash the Pico with the generated person_detection_int8.uf2 file
+
+For a more in-depth tutorial checkout this [Hackster guide](https://www.hackster.io/grisaficarlo/intruder-detection-with-arducam-on-pico-board-673f35).
+
 ## Part 2: Setting up RPi4 Computer Vision script, IFTTT and Cron job
 Install the following [dependencies](https://gist.github.com/mrpjevans/9885e853b603ed046cbc5326b9942991) by following the instructions.
 Save the startup_script.py on your Raspberry Pi and have an image of your face on the same folder.
