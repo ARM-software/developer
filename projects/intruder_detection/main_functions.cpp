@@ -15,7 +15,7 @@ limitations under the License.
 
 /*
    Modified 2021-feb, Carlo Grisafi, Arm (https://arm.com).
-   - Make the code blink an LED if a person is seen
+   - Make the code turn on a RaspberryPi 4 if a person is seen
 */
 
 #include "main_functions.h"
