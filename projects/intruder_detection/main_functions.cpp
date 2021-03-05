@@ -13,6 +13,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+/*
+   Modified 2021-feb, Carlo Grisafi, Arm (https://arm.com).
+   - Make the code blink an LED if a person is seen
+*/
+
 #include "main_functions.h"
 
 #include "detection_responder.h"
