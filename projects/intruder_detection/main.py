@@ -14,9 +14,7 @@
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-
-/* ----------------------------------------------------------------------
+ *
  * Project:      Intruder Detection
  * Title:        main.py
  * Description:  Basic Pico script to turn on an LED if motion sensor is activated
