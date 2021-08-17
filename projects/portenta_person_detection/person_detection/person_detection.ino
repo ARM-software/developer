@@ -95,7 +95,6 @@ namespace {
     boolean wifi_initialized = false;
 
     char filename[255];
-    char img_size_buff[10] = {0};
 
     ImageCropper image_cropper;
     ImageScaler image_scaler;
@@ -116,7 +115,8 @@ boolean init_sd_card()
     err = fs.reformat(&block_device);
 
     if(err) {
-      Serial.printf("\nfailed to mount  or reformat file system - error code = %d\n", err);
+      Serial.print("failed to mount or reformat file system - error code = ");
+      Serial.println(err);
       return false;
     }
 
@@ -133,7 +133,10 @@ void write_image_to_sd_card(const char* image_type, const uint8_t* image_data, i
     sprintf(filename, "/fs/image_%s_%d_%dx%d_%d_%s.raw", image_type, imageNum, imageWidth, imageHeight, imageSize, recognition);
 
     if(write_serial_info) {
-        Serial.printf("\nwriting %d bytes to SD card as %s", imageSize, filename);
+        Serial.print("writing ");
+        Serial.print(imageSize);
+        Serial.print(" bytes to SD card as ");
+        Serial.println(filename);
     }
 
     FILE *file = fopen(filename, "wb");
@@ -146,11 +149,15 @@ void write_image_to_sd_card(const char* image_type, const uint8_t* image_data, i
              total_bytes_written += bytes_written;
              if(bytes_written == 0)  {
                 fclose(file);
-                Serial.printf("\nfailed to write file %s", filename);
+                Serial.print("failed to write file ");
+                Serial.println(filename);
                 return;
              }
              if(bytes_written != write_size) {
-                Serial.printf("\nshort write - attempted %d, wrote only %d", chunk_size, bytes_written);
+                Serial.print("short write - attempted ");
+                Serial.print(chunk_size);
+                Serial.print(", wrote only ");
+                Serial.println(bytes_written);
              }
 
              delay(20);
@@ -159,10 +166,13 @@ void write_image_to_sd_card(const char* image_type, const uint8_t* image_data, i
         fclose(file);
 
         if(write_serial_info) {
-            Serial.printf("\nwrote %d bytes to SD Card", total_bytes_written);
+            Serial.print("wrote ");
+            Serial.print(total_bytes_written);
+            Serial.println(" bytes to SD Card");
         }
     } else {
-        Serial.printf("\nfopen failed with error %d", errno);
+        Serial.print("fopen failed with error ");
+        Serial.println(errno);
     }
 }
 
@@ -244,10 +254,10 @@ void setup()
           wifi_initialized = true;
 
           if(write_serial_info) {
-              Serial.printf("wifi connected, will attempt to send images to server\n");
+              Serial.println("wifi connected, will attempt to send images to server");
           }
       } else {
-          Serial.printf("wifi connection failed, will NOT attempt to send images to server\n");
+          Serial.println("wifi connection failed, will NOT attempt to send images to server");
       }
   }
 
@@ -256,9 +266,16 @@ void setup()
 void loop()
 {
   if(write_serial_info) {
-      Serial.println("\n==============================\n");
-      sprintf(img_size_buff, "%dx%d", pd_large_image_width, pd_large_image_height);
-      Serial.printf("Getting image %d (%s) from camera\n", image_count, img_size_buff);
+      Serial.println();
+      Serial.println("==============================");
+      Serial.println();
+      Serial.print("Getting image ");
+      Serial.print(image_count);
+      Serial.print(" (");
+      Serial.print(pd_large_image_width);
+      Serial.print("x");
+      Serial.print(pd_large_image_height);
+      Serial.println(") from camera");
   }
 
   // get 'large' image from the provider
@@ -269,8 +286,10 @@ void loop()
 
   // crop the image to the square aspect ratio that the model expects (will crop to center)
   if(write_serial_info) {
-      sprintf(img_size_buff, "%dx%d", pd_cropped_dimension, pd_cropped_dimension);
-      Serial.printf("Cropping image to %s\n", img_size_buff);
+      Serial.print("Cropping image to ");
+      Serial.print(pd_cropped_dimension);
+      Serial.print("x");
+      Serial.println(pd_cropped_dimension);
   }
 
   image_cropper.crop_image(largeImage, pd_large_image_width, pd_large_image_height, croppedImage, pd_cropped_dimension, pd_cropped_dimension);
@@ -278,8 +297,10 @@ void loop()
 
   // scale the image to the size that the model expects (96x96)
   if(write_serial_info) {
-      sprintf(img_size_buff, "%dx%d", kNumCols, kNumRows);
-      Serial.printf("Scaling image to %s\n", img_size_buff);
+      Serial.print("Scaling image to ");
+      Serial.print(kNumCols);
+      Serial.print("x");
+      Serial.println(kNumRows);
   }
   int scale_result = image_scaler.scale_image_down(croppedImage, pd_cropped_dimension, pd_cropped_dimension, scaledImage, kNumRows, kNumCols);
   if(scale_result < 0) {
@@ -313,7 +334,9 @@ void loop()
   // write out the scaled image to the SD Card if present
   if(write_scaled_image && sd_card_initialized && image_count < images_to_write) {
      if(write_serial_info) {
-          Serial.printf("Writing scaled image %d to sd card", image_count);
+          Serial.print("Writing scaled image ");
+          Serial.print(image_count);
+          Serial.println(" to sd card");
       }
 
       write_image_to_sd_card("scaled", scaledImage, kNumRows, kNumCols, kMaxImageSize, image_count, person_score > no_person_score ? "PERSON" : "NOPERSON");
@@ -321,7 +344,9 @@ void loop()
 
   if(send_scaled_image && wifi_initialized) {
       if(write_serial_info) {
-          Serial.printf("Sending image %d to server\n", image_count);
+          Serial.print("Sending image ");
+          Serial.print(image_count);
+          Serial.println(" to server");
       }
 
       // To send the 96x96 image, if desired
