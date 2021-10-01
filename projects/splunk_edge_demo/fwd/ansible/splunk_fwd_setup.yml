@@ -1,0 +1,69 @@
+---
+- name: Install & Setup Splunk forwarder
+  vars:
+    splunk_fwd_path: /opt/splunkforwarder
+    splunk_fwd_local: "{{ splunk_fwd_path }}/etc/system/local/"
+    splunk_fwd_certs: "{{ splunk_fwd_path }}/etc/auth/mycerts"
+    splunk_tgz: "splunkforwarder-8.2.1-ddff1c41e5cf-Linux-armv8.tgz"
+    python_scripts_path: "/home/{{ fwd_user }}"
+
+  vars_prompt:
+    - name: fwd_password
+      prompt: Enter Splunk Forwarder Admin Password
+      private: yes
+      confirm: yes
+    - name: fwd_user
+      prompt: Enter Splunk Forwarder User
+      private: no
+
+  hosts: all
+  remote_user: "{{ fwd_user }}"
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Stop the Splunk Forwarder if it's running
+      command: "/opt/splunkforwarder/bin/splunk stop --accept-license"
+      ignore_errors: yes
+
+    - name: Delete splunk forwarder if it exists
+      file:
+        path: "{{ splunk_fwd_path }}"
+        state: absent
+
+    - name: Copy and install the forwarder & sensor interface scripts
+      unarchive:
+        src: "../installers/{{ splunk_tgz }}"
+        dest: /opt
+
+    - name: Copy splunk forwader configs & certs. Also copying sensor interface scripts.
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - { src: ../local/, dest: "{{ splunk_fwd_local }}" }
+        - { src: ../indexer_certs/, dest: "{{ splunk_fwd_certs }}" }
+        - { src: ../../python, dest: "{{ python_scripts_path }}" }
+
+    - name: Make python sensor script executable
+      file:
+        path: "{{ python_scripts_path }}/python/read_sensors.py"
+        mode: 'u+x,g+x,o+x'
+
+    - name: Add splunk enterprise IP to conf files
+      replace:
+        path: "{{ item.path }}"
+        regexp: 'splunk_ent_ip'
+        replace: "{{ lookup('file', './splunk_ent_ip')  }}"
+      with_items:
+          #        - { path: "{{ splunk_fwd_local }}outputs.conf" }
+        - { path: "{{ splunk_fwd_local }}deploymentclient.conf" }
+
+    - name: Seed the password into the user-seed.conf file on the Splunk Enterprise host
+      replace:
+        path: "{{ splunk_fwd_local }}/user-seed.conf"
+        regexp: '<PW>'
+        replace: "{{ fwd_password }}"
+
+    - name: Start Splunk Forwarder
+      command: "/opt/splunkforwarder/bin/splunk start --accept-license"

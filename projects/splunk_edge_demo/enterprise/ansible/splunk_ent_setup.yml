@@ -1,0 +1,57 @@
+---
+- name: Install & Setup Splunk
+  vars:
+    ent_user: "ubuntu"
+    remote_home: "/home/{{ ent_user }}"
+    splunk_ent_path: "/opt/splunk"
+    splunk_ent_local: "{{ splunk_ent_path }}/etc/system/local/"
+    splunk_ent_certs: "{{ splunk_ent_path }}/etc/auth/mycerts/"
+    splunk_ent_app: "{{ splunk_ent_path }}/etc/apps"
+    splunk_ent_deployment_apps: "{{ splunk_ent_path }}/etc/deployment-apps/"
+    splunk_deb: "splunk-8.2.1-ddff1c41e5cf-linux-2.6-amd64.deb"
+
+  vars_prompt:
+    - name: admin_password
+      prompt: Enter Splunk Enterprise Admin Password
+      private: yes
+      confirm: yes
+
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Copy splunk installer and various config files
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - { src: "../installers/{{ splunk_deb }}", dest: "{{ remote_home }}" }
+        - { src: ../server_certs/, dest: "{{ splunk_ent_certs }}" }
+        - { src: ../splunk_config/web.conf, dest: "{{ splunk_ent_local }}" }
+        - { src: ../splunk_user/user-seed.conf, dest: "{{ splunk_ent_local }}" }
+        - { src: ../splunk_inputs/inputs.conf, dest: "{{ splunk_ent_local }}" }
+        - { src: ../splunk_apps/edge_sensor_demo, dest: "{{ splunk_ent_app }}" }
+        - { src: ../splunk_deployment_apps/edge_array_output, dest: "{{ splunk_ent_deployment_apps }}" }
+        - { src: ../splunk_deployment_apps/edge_array_input, dest: "{{ splunk_ent_deployment_apps }}" }
+
+    - name: Install the splunk package
+      apt: "deb={{ remote_home }}/{{ splunk_deb }}"
+
+    - name: Seed the password into the user-seed.conf file on the Splunk Enterprise host
+      replace:
+        path: "{{ splunk_ent_local }}/user-seed.conf"
+        regexp: '<PW>'
+        replace: "{{ admin_password }}"
+
+    - name: Add splunk enterprise IP to conf files
+      replace:
+        path: "{{ item.path }}"
+        regexp: 'splunk_ent_ip'
+        replace: "{{ lookup('file', './host')  }}"
+      with_items:
+        - { path: "{{ splunk_ent_deployment_apps }}/edge_array_output/default/outputs.conf" }
+
+    - name: Start Splunk Enterprise
+      command: "/opt/splunk/bin/splunk --accept-license restart splunkd"

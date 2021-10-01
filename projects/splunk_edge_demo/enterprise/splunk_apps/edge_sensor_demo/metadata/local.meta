@@ -1,0 +1,20 @@
+[app/ui]
+version = 8.2.1
+modtime = 1631214224.816075000
+
+[app/launcher]
+version = 8.2.1
+modtime = 1631214224.816825000
+
+[app/package/check_for_updates]
+version = 8.2.1
+modtime = 1631214224.817080000
+
+[views/edge_sensor_demo_dash]
+owner = admin
+version = 8.2.1
+modtime = 1631652745.846923000
+
+[nav/default]
+version = 8.2.1
+modtime = 1631214940.551159000
