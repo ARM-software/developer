@@ -1,0 +1,56 @@
+###################
+## Java Ignores
+###################
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.original
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#########################
+## Python Related Ignores
+#########################
+*.pyc
+
+#######################
+## VIM related ignores
+#######################
+*.swp
+*.swo
+
+#####################
+## Terraform ignores
+#####################
+*.tfstate
+*.tfstate.lock.info
+*.tfstate.backup
+*.tfstate.*.backup
+*.terraform.lock.hcl
+**/.terraform
+
+#####################
+## installer ignores
+#####################
+*.deb
+*.rpm
+*.tgz
+
+#####################
+## Prevent accidental merge of keys
+#####################
+*.key
+*.pem
+
+#####################
+## Ignore temp files
+#####################
+**/splunk_ent_ip
+**/host
